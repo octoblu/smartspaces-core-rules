@@ -1,0 +1,85 @@
+{
+  "rules": {
+    "addPeopleInRoom": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "device",
+            "operator": "equal",
+            "value": true,
+            "path": ".genisys.inSkype"
+          },
+          {
+            "fact": "device",
+            "path": ".genisys.currentMeeting",
+            "operator": "exists",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{genisys.devices.activities}}",
+          "data": {
+            "$set": {
+              "genisys.activities.endSkype": {
+                "title": "End Skype",
+                "jobType": "end-skype",
+                "people": "{{genisys.peopleInRoom}}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "addPeopleByAttendee": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "device",
+            "operator": "equal",
+            "value": true,
+            "path": ".genisys.inSkype"
+          },
+          {
+            "fact": "device",
+            "path": ".genisys.currentMeeting",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{genisys.devices.activities}}",
+          "data": {
+            "$set": {
+              "genisys.activities.endSkype": {
+                "title": "End Skype",
+                "jobType": "end-skype",
+                "meetingId": "{{genisys.currentMeeting.meetingId}}",
+                "people": "{{genisys.people.byAttendee.isAttendee}}"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "noevents": [
+    {
+      "type": "meshblu",
+      "params": {
+        "operation": "update",
+        "uuid": "{{genisys.devices.activities}}",
+        "data": {
+          "genisys.activities.endSkype.people": []
+        }
+      }
+    }
+  ]
+}

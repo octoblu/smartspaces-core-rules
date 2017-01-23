@@ -1,0 +1,35 @@
+{
+  "rules": {
+    "addPeopleInRoom": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "device",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{genisys.devices.activities}}",
+          "data": {
+            "$set": {
+              "genisys.activities.endMeeting": {
+                "title": "End Meeting",
+                "jobType": "end-meeting",
+                "meetingId": "{{genisys.currentMeeting.meetingId}}",
+                "data": {
+                  "meetingId": "{{genisys.currentMeeting.meetingId}}"
+                },
+                "people": "{{genisys.people.byAttendee.isAttendee}}"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
