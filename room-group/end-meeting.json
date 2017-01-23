@@ -31,5 +31,19 @@
         }
       }
     }
-  }
+  },
+  "noevents": [
+    {
+      "type": "meshblu",
+      "params": {
+        "operation": "update",
+        "uuid": "{{genisys.devices.activities}}",
+        "data": {
+          "$unset": {
+            "genisys.activities.endMeeting": true
+          }
+        }
+      }
+    }
+  ]
 }

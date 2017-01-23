@@ -43,8 +43,8 @@
         "uuid": "{{genisys.devices.activities}}",
         "operation": "update",
         "data": {
-          "$set": {
-            "genisys.activities.startSkype.people": []
+          "$unset": {
+            "genisys.activities.startSkype": true
           }
         }
       }
