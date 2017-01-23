@@ -15,6 +15,7 @@
         "params": {
           "operation": "update",
           "uuid": "{{genisys.devices.activities}}",
+          "as": "{{uuid}}",
           "data": {
             "$set": {
               "genisys.activities.endMeeting": {
@@ -38,6 +39,7 @@
       "params": {
         "operation": "update",
         "uuid": "{{genisys.devices.activities}}",
+        "as": "{{uuid}}",
         "data": {
           "$unset": {
             "genisys.activities.endMeeting": true
