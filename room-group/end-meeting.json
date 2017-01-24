@@ -5,6 +5,7 @@
         "all": [
           {
             "fact": "device",
+            "path": ".genisys.currentMeeting",
             "operator": "exists",
             "value": true
           }
