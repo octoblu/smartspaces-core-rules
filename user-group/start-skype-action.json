@@ -4,10 +4,10 @@
       "conditions": {
         "all": [
           {
-            "fact": "device",
-            "path": ".genisys.actions.start-skype",
-            "operator": "exists",
-            "value": true
+            "fact": "data",
+            "path": ".topic",
+            "operator": "equals",
+            "value": "start-skype"
           }
         ]
       },
@@ -15,7 +15,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{uuid}}",
+          "uuid": "{{data.roomUuid}}",
           "data": {
             "$set": {
                 "genisys.inSkype": true,
@@ -29,19 +29,19 @@
       "conditions": {
         "all": [
           {
-            "fact": "device",
-            "path": ".genisys.actions.start-skype",
-            "operator": "exists",
-            "value": true
+            "fact": "data",
+            "path": ".topic",
+            "operator": "equals",
+            "value": "start-skype"
           },
           {
-            "fact": "device",
+            "fact": "data",
             "path": ".genisys.skypeDeviceUuid",
             "operator": "exists",
             "value": true
           },
           {
-            "fact": "device",
+            "fact": "data",
             "path": ".genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url",
             "operator": "exists",
             "value": true
@@ -52,11 +52,11 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{genisys.skypeDeviceUuid}}",
+          "uuid": "{{data.genisys.skypeDeviceUuid}}",
           "data": {
             "$set": {
               "desiredState.meeting": {
-                  "url": "{{msg.data.genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url}}"
+                  "url": "{{data.genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url}}"
               },
               "desiredState.videoEnabled": true,
               "desiredState.audioEnabled": true
@@ -69,19 +69,19 @@
       "conditions": {
         "all": [
           {
-            "fact": "device",
+            "fact": "data",
             "path": ".genisys.actions.start-skype",
             "operator": "exists",
             "value": true
           },
           {
-            "fact": "device",
+            "fact": "data",
             "path": ".genisys.skypeDeviceUuid",
             "operator": "exists",
             "value": true
           },
           {
-            "fact": "device",
+            "fact": "data",
             "path": ".genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url",
             "operator": "exists",
             "value": false
@@ -92,7 +92,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{genisys.skypeDeviceUuid}}",
+          "uuid": "{{data.genisys.skypeDeviceUuid}}",
           "data": {
             "$set": {
               "desiredState.meeting": {

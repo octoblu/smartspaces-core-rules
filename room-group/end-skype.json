@@ -4,13 +4,13 @@
       "conditions": {
         "all": [
           {
-            "fact": "device",
+            "fact": "data",
             "operator": "equal",
             "value": true,
             "path": ".genisys.inSkype"
           },
           {
-            "fact": "device",
+            "fact": "data",
             "path": ".genisys.currentMeeting",
             "operator": "exists",
             "value": false
@@ -21,14 +21,14 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{genisys.devices.activities}}",
-          "as": "{{uuid}}",
+          "uuid": "{{data.genisys.devices.activities}}",
+          "as": "{{data.uuid}}",
           "data": {
             "$set": {
               "genisys.activities.endSkype": {
                 "title": "End Skype",
                 "jobType": "end-skype",
-                "people": "{{genisys.peopleInRoom}}"
+                "people": "{{data.genisys.peopleInRoom}}"
               }
             }
           }
@@ -39,13 +39,13 @@
       "conditions": {
         "all": [
           {
-            "fact": "device",
+            "fact": "data",
             "operator": "equal",
             "value": true,
             "path": ".genisys.inSkype"
           },
           {
-            "fact": "device",
+            "fact": "data",
             "path": ".genisys.currentMeeting",
             "operator": "exists",
             "value": true
@@ -56,15 +56,15 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{genisys.devices.activities}}",
-          "as": "{{uuid}}",
+          "uuid": "{{data.genisys.devices.activities}}",
+          "as": "{{data.uuid}}",
           "data": {
             "$set": {
               "genisys.activities.endSkype": {
                 "title": "End Skype",
                 "jobType": "end-skype",
-                "meetingId": "{{genisys.currentMeeting.meetingId}}",
-                "people": "{{genisys.people.byAttendee.isAttendee}}"
+                "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
+                "people": "{{data.genisys.people.byAttendee.isAttendee}}"
               }
             }
           }
@@ -77,8 +77,8 @@
       "type": "meshblu",
       "params": {
         "operation": "update",
-        "uuid": "{{genisys.devices.activities}}",
-        "as": "{{uuid}}",
+        "uuid": "{{data.genisys.devices.activities}}",
+        "as": "{{data.uuid}}",
         "data": {
           "$unset": {
             "genisys.activities.endSkype": true
