@@ -22,6 +22,7 @@
         "params": {
           "operation": "update",
           "uuid": "{{genisys.devices.activities}}",
+          "as": "{{uuid}}",
           "data": {
             "$set": {
               "genisys.activities.endSkype": {
