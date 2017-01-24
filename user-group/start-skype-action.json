@@ -1,0 +1,109 @@
+{
+  "rules": {
+    "startSkypeInRoom": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "device",
+            "path": ".genisys.actions.start-skype",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{uuid}}",
+          "data": {
+            "$set": {
+                "genisys.inSkype": true,
+                "genisys.enableAudio": true
+            }
+          }
+        }
+      }
+    },
+    "setSkypeUrlOnSkypeDevice": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "device",
+            "path": ".genisys.actions.start-skype",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "device",
+            "path": ".genisys.skypeDeviceUuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "device",
+            "path": ".genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{genisys.skypeDeviceUuid}}",
+          "data": {
+            "$set": {
+              "desiredState.meeting": {
+                  "url": "{{msg.data.genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url}}"
+              },
+              "desiredState.videoEnabled": true,
+              "desiredState.audioEnabled": true
+            }
+          }
+        }
+      }
+    },
+    "unsetSkypeUrlOnSkypeDevice": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "device",
+            "path": ".genisys.actions.start-skype",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "device",
+            "path": ".genisys.skypeDeviceUuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "device",
+            "path": ".genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url",
+            "operator": "exists",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{genisys.skypeDeviceUuid}}",
+          "data": {
+            "$set": {
+              "desiredState.meeting": {
+                  "url": null
+              },
+              "desiredState.videoEnabled": true,
+              "desiredState.audioEnabled": true
+            }
+          }
+        }
+      }
+    }
+  }
+}
