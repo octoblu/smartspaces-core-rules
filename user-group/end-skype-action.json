@@ -1,0 +1,60 @@
+{
+  "rules": {
+    "endSkypeInRoom": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".metadata.jobType",
+            "operator": "equal",
+            "value": "end-skype"
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.room.uuid}}",
+          "data": {
+            "$set": {
+                "genisys.inSkype": false
+            }
+          }
+        }
+      }
+    },
+    "removeMeetingOnSkypeDevice": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".metadata.jobType",
+            "operator": "equal",
+            "value": "end-skype"
+          },
+          {
+            "fact": "data",
+            "path": ".room.genisys.skypeDeviceUuid",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.room.genisys.skypeDeviceUuid}}",
+          "data": {
+            "$set": {
+              "desiredState" : {
+                  "meeting": null
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
