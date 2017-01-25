@@ -31,7 +31,10 @@
 									"metadata": {
 										"jobType": "end-skype"
 									},
-									"data": {}
+									"data": {
+                    "roomId": "{{data.uuid}}",
+                    "room": {"$ref": "meshbludevice://{{data.uuid}}"}
+                  }
 								}
 							}
 						}
