@@ -18,7 +18,7 @@
           "uuid": "{{data.room.uuid}}",
           "data": {
             "$set": {
-              "genisys.enableAudio": false
+              "genisys.actions.disable-audio-action": {}
             }
           }
         }
