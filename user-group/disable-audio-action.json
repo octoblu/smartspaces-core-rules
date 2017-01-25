@@ -1,0 +1,58 @@
+{
+  "rules": {
+    "disableSkypeAudioInRoom": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".topic",
+            "operator": "equals",
+            "value": "disable-skype-audio"
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.room.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.enableAudio": false
+            }
+          }
+        }
+      }
+    },
+    "disableSkypeAudioOnSkypeDevice": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".genisys.actions.disable-skype-audio",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".genisys.skypeDeviceUuid",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.room.genisys.skypeDeviceUuid}}",
+          "data": {
+            "$set": {
+              "desiredState.audioEnabled": false
+            }
+          }
+        }
+      }
+    }
+  }
+}
