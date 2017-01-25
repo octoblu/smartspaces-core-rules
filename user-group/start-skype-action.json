@@ -36,13 +36,13 @@
           },
           {
             "fact": "data",
-            "path": ".genisys.skypeDeviceUuid",
+            "path": "room.genisys.skypeDeviceUuid",
             "operator": "exists",
             "value": true
           },
           {
             "fact": "data",
-            "path": ".genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url",
+            "path": "room.genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url",
             "operator": "exists",
             "value": true
           }
@@ -70,19 +70,19 @@
         "all": [
           {
             "fact": "data",
-            "path": ".genisys.actions.start-skype",
+            "path": "room.genisys.actions.start-skype",
             "operator": "exists",
             "value": true
           },
           {
             "fact": "data",
-            "path": ".genisys.skypeDeviceUuid",
+            "path": "room.genisys.skypeDeviceUuid",
             "operator": "exists",
             "value": true
           },
           {
             "fact": "data",
-            "path": ".genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url",
+            "path": "room.genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url",
             "operator": "exists",
             "value": false
           }
