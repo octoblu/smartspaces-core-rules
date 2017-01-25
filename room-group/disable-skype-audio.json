@@ -21,14 +21,19 @@
             "$set": {
               "genisys.activities.disableSkypeAudio": {
                 "title": "Disable Audio",
-                "people": "{{data.genisys.peopleInRoom}}",
+                "people": "{{data.genisys.people.byAttendee.isAttendee}}",
+                "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
                 "roomId": "{{data.uuid}}",
                 "message": {
                   "devices": ["*"],
                   "metadata": {
                     "jobType": "disable-skype-audio"
                   },
-                  "data": {}
+                  "data": {
+                    "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
+                    "roomId": "{{data.uuid}}",
+                    "room": {"$ref": "meshbludevice://{{data.uuid}}"}
+                  }
                 }
               }
             }
