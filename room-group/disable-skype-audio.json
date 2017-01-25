@@ -22,6 +22,7 @@
               "genisys.activities.disableSkypeAudio": {
                 "title": "Disable Audio",
                 "people": "{{data.genisys.peopleInRoom}}",
+                "roomId": "{{data.uuid}}",
                 "message": {
                   "devices": ["*"],
                   "metadata": {

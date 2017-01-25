@@ -22,7 +22,8 @@
               "genisys.activities.endMeeting": {
                 "title": "End Meeting",
                 "people": "{{data.genisys.people.byAttendee.isAttendee}}",
-
+                "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
+                "roomId": "{{data.uuid}}",
                 "message": {
                   "devices": ["*"],
                   "metadata": {

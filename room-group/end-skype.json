@@ -25,6 +25,7 @@
 							"genisys.activities.endSkype": {
 								"title": "End Skype",
 								"people": "{{data.genisys.peopleInRoom}}",
+                "roomId": "{{data.uuid}}",
 								"message": {
 									"devices": ["*"],
 									"metadata": {
@@ -63,6 +64,8 @@
 							"genisys.activities.endSkype": {
 								"title": "End Skype",
 								"people": "{{data.genisys.people.byAttendee.isAttendee}}",
+                "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
+                "roomId": "{{data.uuid}}",
 								"message": {
 									"devices": ["*"],
 									"metadata": {

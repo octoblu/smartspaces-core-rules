@@ -28,6 +28,8 @@
               "genisys.activities.startSkype": {
                 "title": "Start Skype",
                 "people": "{{data.genisys.people.byAttendee.isAttendee}}",
+                "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
+                "roomId": "{{data.uuid}}",
                 "message": {
                   "devices": ["*"],
                   "metadata": {
@@ -35,7 +37,7 @@
                   },
                   "data": {
                     "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
-                    "room": {"$ref": "meshbludevice://{{data.uuid}}"},
+                    "room": {"$ref": "meshbludevice://{{data.uuid}}"}
                   }
                 }
               }
