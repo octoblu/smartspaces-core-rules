@@ -5,8 +5,8 @@
         "all": [
           {
             "fact": "data",
-            "path": ".topic",
-            "operator": "equals",
+            "path": ".metadata.jobType",
+            "operator": "equal",
             "value": "disable-skype-audio"
           }
         ]
