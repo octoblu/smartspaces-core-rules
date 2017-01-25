@@ -21,12 +21,17 @@
             "$set": {
               "genisys.activities.endMeeting": {
                 "title": "End Meeting",
-                "jobType": "end-meeting",
-                "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
-                "data": {
-                  "meetingId": "{{data.genisys.currentMeeting.meetingId}}"
-                },
-                "people": "{{data.genisys.people.byAttendee.isAttendee}}"
+                "people": "{{data.genisys.people.byAttendee.isAttendee}}",
+
+                "message": {
+                  "devices": ["*"],
+                  "metadata": {
+                    "jobType": "end-meeting"
+                  },
+                  "data": {
+                    "meetingId": "{{data.genisys.currentMeeting.meetingId}}"
+                  }
+                }
               }
             }
           }

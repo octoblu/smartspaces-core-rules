@@ -21,8 +21,14 @@
             "$set": {
               "genisys.activities.disableSkypeAudio": {
                 "title": "Disable Audio",
-                "jobType": "disable-skype-audio",
-                "people": "{{data.genisys.peopleInRoom}}"
+                "people": "{{data.genisys.peopleInRoom}}",
+                "message": {
+                  "devices": ["*"],
+                  "metadata": {
+                    "jobType": "disable-skype-audio"
+                  },
+                  "data": {}
+                }
               }
             }
           }
