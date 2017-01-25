@@ -5,7 +5,7 @@
         "all": [
           {
             "fact": "data",
-            "path": ".topic",
+            "path": ".metadata.jobType",
             "operator": "equal",
             "value": "start-skype"
           }
@@ -30,7 +30,7 @@
         "all": [
           {
             "fact": "data",
-            "path": ".topic",
+            "path": ".metadata.jobType",
             "operator": "equal",
             "value": "start-skype"
           },
@@ -70,7 +70,7 @@
         "all": [
           {
             "fact": "data",
-            "path": ".topic",
+            "path": ".metadata.jobType",
             "operator": "equal",
             "value": "start-skype"
           },
