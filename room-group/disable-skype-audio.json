@@ -30,9 +30,7 @@
                     "jobType": "disable-skype-audio"
                   },
                   "data": {
-                    "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
-                    "roomId": "{{data.uuid}}",
-                    "room": {"$ref": "meshbludevice://{{data.uuid}}"}
+                    "skype": "{{data.genisys.devices.skype}}"
                   }
                 }
               }
