@@ -1,6 +1,6 @@
 {
   "rules": {
-    "disableSkypeAudioInRoom": {
+    "disableSkypeAudioInSkypeDevice": {
       "conditions": {
         "all": [
           {
@@ -15,10 +15,10 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{data.room.uuid}}",
+          "uuid": "{{data.skype.uuid}}",
           "data": {
             "$set": {
-              "genisys.actions.disable-audio-action": {}
+              "desiredState.audioEnabled": true
             }
           }
         }
