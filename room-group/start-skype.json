@@ -29,7 +29,8 @@
                 "title": "Start Skype",
                 "jobType": "start-skype",
                 "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
-                "people": "{{data.genisys.people.byAttendee.isAttendee}}"
+                "people": "{{data.genisys.people.byAttendee.isAttendee}}",
+                "room": {"$ref": "meshbludevice://{{data.uuid}}"}
               }
             }
           }

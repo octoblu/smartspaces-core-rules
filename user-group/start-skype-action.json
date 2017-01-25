@@ -15,7 +15,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{data.roomUuid}}",
+          "uuid": "{{data.room.uuid}}",
           "data": {
             "$set": {
                 "genisys.inSkype": true,
@@ -52,11 +52,11 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{data.genisys.skypeDeviceUuid}}",
+          "uuid": "{{data.room.genisys.skypeDeviceUuid}}",
           "data": {
             "$set": {
               "desiredState.meeting": {
-                  "url": "{{data.genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url}}"
+                  "url": "{{data.room.genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url}}"
               },
               "desiredState.videoEnabled": true,
               "desiredState.audioEnabled": true
@@ -92,7 +92,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{data.genisys.skypeDeviceUuid}}",
+          "uuid": "{{data.room.genisys.skypeDeviceUuid}}",
           "data": {
             "$set": {
               "desiredState.meeting": {
