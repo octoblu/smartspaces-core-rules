@@ -75,6 +75,7 @@
 										"jobType": "end-skype"
 									},
 									"data": {
+										"roomId": "{{data.uuid}}",
 										"meetingId": "{{data.genisys.currentMeeting.meetingId}}"
 									}
 								}
