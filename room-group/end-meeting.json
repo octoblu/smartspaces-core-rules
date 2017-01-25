@@ -30,6 +30,7 @@
                     "jobType": "end-meeting"
                   },
                   "data": {
+                    "roomId": "{{data.uuid}}",
                     "meetingId": "{{data.genisys.currentMeeting.meetingId}}"
                   }
                 }

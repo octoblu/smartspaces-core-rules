@@ -1,0 +1,33 @@
+{
+  "rules": {
+    "endMeetingInRoom": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".metadata.jobType",
+            "operator": "equal",
+            "value": "end-meeting"
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": [{
+          "operation": "message an endo"
+        }, {
+          "operation": "update",
+          "uuid": "{{data.roomId}}",
+          "data": {
+            "$unset": {
+                "genisys.actions.end-meeting": true
+            },
+            "$set": {
+                "genisys.actions.end-skype": true
+            }
+          }
+        }]
+      }
+    }
+  }
+}
