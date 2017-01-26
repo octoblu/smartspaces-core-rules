@@ -15,7 +15,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{data.genisys.devices.activities}}",
+          "uuid": "{{data.genisys.devices.activities.uuid}}",
           "as": "{{data.uuid}}",
           "data": {
             "$set": {
@@ -46,7 +46,7 @@
       "type": "meshblu",
       "params": {
         "operation": "update",
-        "uuid": "{{data.genisys.devices.activities}}",
+        "uuid": "{{data.genisys.devices.activities.uuid}}",
         "as": "{{data.uuid}}",
         "data": {
           "$unset": {
