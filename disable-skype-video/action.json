@@ -1,0 +1,28 @@
+{
+  "rules": {
+    "disableSkypeVideoInSkypeDevice": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".metadata.jobType",
+            "operator": "equal",
+            "value": "disable-skype-video"
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.data.skype.uuid}}",
+          "data": {
+            "$set": {
+              "desiredState.videoEnabled": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

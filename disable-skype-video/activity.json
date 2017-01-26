@@ -1,0 +1,64 @@
+{
+  "rules": {
+    "disableSkypeVideoActivity": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "operator": "equal",
+            "value": true,
+            "path": ".genisys.inSkype"
+          },
+          {
+            "fact": "data",
+            "operator": "equal",
+            "value": true,
+            "path": ".genisys.videoEnabled"
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.genisys.devices.activities.uuid}}",
+          "as": "{{data.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.activities.disableSkypeVideo": {
+                "title": "Disable Video",
+                "people": "{{data.genisys.people.byAttendee.isAttendee}}",
+                "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
+                "roomId": "{{data.uuid}}",
+                "message": {
+                  "devices": ["*"],
+                  "metadata": {
+                    "jobType": "disable-skype-video"
+                  },
+                  "data": {
+                    "skype": "{{data.genisys.devices.skype}}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "noevents": [
+    {
+      "type": "meshblu",
+      "params": {
+        "operation": "update",
+        "uuid": "{{data.genisys.devices.activities.uuid}}",
+        "as": "{{data.uuid}}",
+        "data": {
+          "$unset": {
+            "genisys.activities.disableSkypeVideo": true
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "rules": {
+    "updateVideoEnabledWhenTrue": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".state.videoEnabled",
+            "operator": "equal",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.genisys.roomId}}",
+          "as": "{{data.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.videoEnabled": true
+            }
+          }
+        }
+      }
+    },
+    "updateVideoEnabledWhenFalse": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".state.videoEnabled",
+            "operator": "equal",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.genisys.roomId}}",
+          "as": "{{data.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.videoEnabled": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "noevents": [
+    {
+      "type": "meshblu",
+      "params": {
+        "operation": "update",
+        "uuid": "{{data.genisys.roomId}}",
+        "as": "{{data.uuid}}",
+        "data": {
+          "$unset": {
+            "genisys.videoEnabled": false
+          }
+        }
+      }
+    }
+  ]
+}
