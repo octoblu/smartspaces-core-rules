@@ -1,0 +1,31 @@
+{
+  "rules": {
+    "startMeeting": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".metadata.jobType",
+            "operator": "equal",
+            "value": "start-meeting"
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": [{
+          "operation": "message an endo"
+        }, {
+          "operation": "update",
+          "uuid": "{{data.roomId}}",
+          "data": {
+            "metadata": {
+              "jobType": "UpsertMeeting"
+            },
+            "data": "{{msg}}"
+          }
+        }]
+      }
+    }
+  }
+}
