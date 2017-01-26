@@ -1,0 +1,69 @@
+{
+  "rules": {
+    "updateAudioEnabledWhenTrue": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".state.audioEnabled",
+            "operator": "equal",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.genisys.roomId}}",
+          "as": "{{data.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.audioEnabled": true
+            }
+          }
+        }
+      }
+    },
+    "updateAudioEnabledWhenFalse": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".state.audioEnabled",
+            "operator": "equal",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.genisys.roomId}}",
+          "as": "{{data.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.audioEnabled": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "noevents": [
+    {
+      "type": "meshblu",
+      "params": {
+        "operation": "update",
+        "uuid": "{{data.genisys.roomId}}",
+        "as": "{{data.uuid}}",
+        "data": {
+          "$unset": {
+            "genisys.audioEnabled": false
+          }
+        }
+      }
+    }
+  ]
+}

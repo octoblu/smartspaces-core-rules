@@ -8,6 +8,12 @@
             "operator": "equal",
             "value": true,
             "path": ".genisys.inSkype"
+          },
+          {
+            "fact": "data",
+            "operator": "equal",
+            "value": true,
+            "path": ".genisys.audioEnabled"
           }
         ]
       },
