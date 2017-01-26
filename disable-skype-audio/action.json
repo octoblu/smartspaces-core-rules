@@ -18,7 +18,7 @@
           "uuid": "{{data.data.skype.uuid}}",
           "data": {
             "$set": {
-              "desiredState.audioEnabled": true
+              "desiredState.audioEnabled": false
             }
           }
         }
