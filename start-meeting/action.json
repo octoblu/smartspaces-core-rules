@@ -15,8 +15,8 @@
         "type": "meshblu",
         "params": {
           "operation": "message",
-          "uuid": "{{data.room.genisys.devices.endoGenisysMeeting.uuid}}",
-          "data": {
+          "message": {
+            "devices": ["{{data.room.genisys.devices.endoGenisysMeeting.uuid}}"],
             "metadata": {
               "jobType": "UpsertMeeting"
             },
