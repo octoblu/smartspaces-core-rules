@@ -13,18 +13,22 @@
       },
       "event": {
         "type": "meshblu",
-        "params": [{
-          "operation": "message an endo"
-        }, {
-          "operation": "update",
-          "uuid": "{{data.roomId}}",
+        "params": {
+          "operation": "message",
+          "uuid": "{{data.room.genisys.devices.endoGenisysMeeting.uuid}}",
           "data": {
             "metadata": {
               "jobType": "UpsertMeeting"
             },
-            "data": "{{msg}}"
+            "data": {
+                "subject": "Instant Meeting",
+                "roomId": "{{data.room.uuid}}",
+                "roomName": "{{data.room.name}}",
+                "location": "{{data.room.genisys.location}}",
+                "attendees": []
+            }
           }
-        }]
+        }
       }
     }
   }
