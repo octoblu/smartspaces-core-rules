@@ -11,7 +11,7 @@
           },
           {
             "fact": "data",
-            "path": ".room.genisys.devices.skype.uuid",
+            "path": ".data.room.genisys.devices.skype.uuid",
             "operator": "exists",
             "value": true
           }
