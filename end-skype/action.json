@@ -1,29 +1,5 @@
 {
   "rules": {
-    "endSkypeInRoom": {
-      "conditions": {
-        "all": [
-          {
-            "fact": "data",
-            "path": ".metadata.jobType",
-            "operator": "equal",
-            "value": "end-skype"
-          }
-        ]
-      },
-      "event": {
-        "type": "meshblu",
-        "params": {
-          "operation": "update",
-          "uuid": "{{data.roomId}}",
-          "data": {
-            "$set": {
-                "genisys.inSkype": false
-            }
-          }
-        }
-      }
-    },
     "removeMeetingOnSkypeDevice": {
       "conditions": {
         "all": [
