@@ -13,20 +13,18 @@
       },
       "event": {
         "type": "meshblu",
-        "params": [{
-          "operation": "message an endo"
-        }, {
-          "operation": "update",
-          "uuid": "{{data.roomId}}",
-          "data": {
-            "$unset": {
-                "genisys.actions.end-meeting": true
+        "params": {
+          "operation": "message",
+          "message": {
+            "devices": ["{{data.room.genisys.devices.endoGenisysMeeting.uuid}}"],
+            "metadata": {
+              "jobType": "EndMeeting"
             },
-            "$set": {
-                "genisys.actions.end-skype": true
+            "data": {
+              "meetingId": "{{data.data.meetingId}}"
             }
           }
-        }]
+        }
       }
     }
   }
