@@ -30,8 +30,8 @@
                     "jobType": "end-meeting"
                   },
                   "data": {
-                    "roomId": "{{data.uuid}}",
-                    "meetingId": "{{data.genisys.currentMeeting.meetingId}}"
+                    "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
+                    "room": {"$ref": "meshbludevice://{{data.uuid}}"}
                   }
                 }
               }
