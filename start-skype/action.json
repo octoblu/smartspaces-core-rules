@@ -36,7 +36,7 @@
           },
           {
             "fact": "data",
-            "path": ".room.genisys.skypeDeviceUuid",
+            "path": ".room.genisys.devices.skype.uuid",
             "operator": "exists",
             "value": true
           },
@@ -52,7 +52,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{data.room.genisys.skypeDeviceUuid}}",
+          "uuid": "{{data.data.room.genisys.devices.skype.uuid}}",
           "data": {
             "$set": {
               "desiredState.meeting": {
@@ -76,7 +76,7 @@
           },
           {
             "fact": "data",
-            "path": ".room.genisys.skypeDeviceUuid",
+            "path": ".room.genisys.devices.skype.uuid",
             "operator": "exists",
             "value": true
           },
@@ -92,7 +92,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{data.room.genisys.skypeDeviceUuid}}",
+          "uuid": "{{data.data.room.genisys.devices.skype.uuid}}",
           "data": {
             "$set": {
               "desiredState.meeting": {
