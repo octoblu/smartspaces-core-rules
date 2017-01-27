@@ -11,13 +11,13 @@
           },
           {
             "fact": "data",
-            "path": ".room.genisys.devices.skype.uuid",
+            "path": ".data.room.genisys.devices.skype.uuid",
             "operator": "exists",
             "value": true
           },
           {
             "fact": "data",
-            "path": ".room.genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url",
+            "path": ".data.room.genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url",
             "operator": "exists",
             "value": true
           }
@@ -31,7 +31,7 @@
           "data": {
             "$set": {
               "desiredState.meeting": {
-                  "url": "{{data.room.genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url}}"
+                  "url": "{{data.data.room.genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url}}"
               },
               "desiredState.videoEnabled": true,
               "desiredState.audioEnabled": true
@@ -51,13 +51,13 @@
           },
           {
             "fact": "data",
-            "path": ".room.genisys.devices.skype.uuid",
+            "path": ".data.room.genisys.devices.skype.uuid",
             "operator": "exists",
             "value": true
           },
           {
             "fact": "data",
-            "path": ".room.genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url",
+            "path": ".data.room.genisys.currentMeeting.exchange.urls.com.citrix.meet.0.url",
             "operator": "exists",
             "value": false
           }
