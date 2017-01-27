@@ -1,6 +1,6 @@
 {
   "rules": {
-    "updateAudioEnabledWhenTrue": {
+    "whenNotInSkypeUpdateRoom": {
       "conditions": {
         "any": [
           {
@@ -39,7 +39,7 @@
       "uuid": "{{data.genisys.roomId}}",
       "as": "{{data.uuid}}",
       "data": {
-        "$unset": {
+        "$set": {
           "genisys.inSkype": true
         }
       }
