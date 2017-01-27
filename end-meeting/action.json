@@ -16,7 +16,7 @@
         "params": {
           "operation": "message",
           "message": {
-            "devices": ["{{data.data.room.genisys.devices.endoGenisysMeeting.uuid}}"],
+            "devices": ["{{device.genisys.devices.endo-genisys-meeting.uuid}}"],
             "metadata": {
               "jobType": "EndMeeting"
             },
