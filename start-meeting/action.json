@@ -16,15 +16,15 @@
         "params": {
           "operation": "message",
           "message": {
-            "devices": ["{{data.room.genisys.devices.endoGenisysMeeting.uuid}}"],
+            "devices": ["{{device.genisys.devices.endo-genisys-meeting.uuid}}"],
             "metadata": {
               "jobType": "UpsertMeeting"
             },
             "data": {
                 "subject": "Instant Meeting",
-                "roomId": "{{data.room.uuid}}",
-                "roomName": "{{data.room.name}}",
-                "location": "{{data.room.genisys.location}}",
+                "roomId": "{{data.data.room.uuid}}",
+                "roomName": "{{data.data.room.name}}",
+                "location": "{{data.data.room.genisys.location}}",
                 "attendees": []
             }
           }
