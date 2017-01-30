@@ -22,7 +22,9 @@
             },
             "data": {
                 "subject": "Instant Meeting",
-                "roomId": "{{data.data.device.genisys.roomId}}",
+                "room": {
+                  "roomId": "{{data.data.device.genisys.roomId}}"
+                },
                 "attendees": []
             }
           }
