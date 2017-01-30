@@ -5,9 +5,9 @@
         "all": [
           {
             "fact": "data",
-            "path": ".metadata.jobType",
-            "operator": "equal",
-            "value": "start-meeting"
+            "path": ".genisys.roomId",
+            "operator": "exists",
+            "value": true
           }
         ]
       },
@@ -22,9 +22,7 @@
             },
             "data": {
                 "subject": "Instant Meeting",
-                "roomId": "{{data.data.room.uuid}}",
-                "roomName": "{{data.data.room.name}}",
-                "location": "{{data.data.room.genisys.location}}",
+                "roomId": "{{data.genisys.roomId}}",
                 "attendees": []
             }
           }
