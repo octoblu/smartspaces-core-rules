@@ -5,7 +5,7 @@
         "all": [
           {
             "fact": "data",
-            "path": ".genisys.roomId",
+            "path": ".data.device.genisys.roomId",
             "operator": "exists",
             "value": true
           }
@@ -22,7 +22,7 @@
             },
             "data": {
                 "subject": "Instant Meeting",
-                "roomId": "{{data.genisys.roomId}}",
+                "roomId": "{{data.data.device.genisys.roomId}}",
                 "attendees": []
             }
           }
