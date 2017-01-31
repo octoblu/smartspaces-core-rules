@@ -1,0 +1,31 @@
+{
+  "rules": {
+    "endMeetingInRoom": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".metadata.jobType",
+            "operator": "equal",
+            "value": "end-meeting"
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "as": "{{device.genisys.devices.skype-group.uuid}}",
+          "uuid": "{{data.data.room.genisys.devices.skype.uuid}}",
+          "data": {
+            "$set": {
+              "desiredState" : {
+                "meeting": null
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
