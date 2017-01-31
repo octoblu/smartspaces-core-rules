@@ -4,10 +4,16 @@
       "conditions": {
         "all": [
           {
+            "fact": "device",
+            "path": ".genisys.devices.endo-genisys-meeting.uuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
             "fact": "data",
-            "path": ".data.event",
-            "operator": "equal",
-            "value": "click"
+            "path": ".data.device.genisys.roomId",
+            "operator": "exists",
+            "value": true
           }
         ]
       },
@@ -23,7 +29,8 @@
             "data": {
                 "subject": "Instant Meeting",
                 "room": {
-                  "roomId": "{{data.data.device.genisys.roomId}}"
+                  "roomId": "{{data.data.device.genisys.roomId}}",
+                  ""
                 },
                 "attendees": []
             }
