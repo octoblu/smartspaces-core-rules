@@ -1,0 +1,27 @@
+{
+  "rules": {
+    "updateRoomStatusWhenRoomChanges": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{device.genisys.devices.room-status.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.rooms.{{data.uuid}}": true
+            }
+          }
+        }
+      }
+    }
+  }
+}
