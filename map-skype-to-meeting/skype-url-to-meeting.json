@@ -1,0 +1,42 @@
+{
+  "rules": {
+    "whenSkypeHasUrlUpdateMeeting": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".state.meeting.url",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.genisys.room.genisys.currentMeeting.uuid}}",
+          "as": "{{device.genisys.devices.meeting-group.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.skypeUrl": "{{data.state.meeting.url}}"
+            }
+          }
+        }
+      }
+    }
+  },
+  "noevents": [{
+    "type": "meshblu",
+    "params": {
+      "operation": "update",
+      "uuid": "{{data.genisys.room.genisys.currentMeeting.uuid}}",
+      "as": "{{device.genisys.devices.meeting-group.uuid}}",
+      "data": {
+        "$unset": {
+          "genisys.skypeUrl": true
+        }
+      }
+    }
+  }]
+}
