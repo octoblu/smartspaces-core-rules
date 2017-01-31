@@ -27,12 +27,11 @@
               "jobType": "UpsertMeeting"
             },
             "data": {
-                "subject": "Instant Meeting",
-                "room": {
-                  "roomId": "{{data.data.device.genisys.roomId}}",
-                  ""
-                },
-                "attendees": []
+              "subject": "Instant Meeting",
+              "room": {
+                "roomId": "{{data.data.device.genisys.roomId}}"
+              },
+              "attendees": []
             }
           }
         }
