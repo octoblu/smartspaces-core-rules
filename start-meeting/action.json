@@ -5,9 +5,9 @@
         "all": [
           {
             "fact": "data",
-            "path": ".data.device.genisys.roomId",
-            "operator": "exists",
-            "value": true
+            "path": ".data.event",
+            "operator": "equal",
+            "value": "click"
           }
         ]
       },
