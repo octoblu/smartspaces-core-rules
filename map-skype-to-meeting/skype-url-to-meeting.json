@@ -35,7 +35,7 @@
       "data": {
         "$unset": {
           "genisys.skypeUrl": true,
-          "roomGenisys": "{{data.genisys.room.genisys}}"
+          "roomGenisysCurrentMeeting": "{{data.genisys.room.genisys.currentMeeting}}"
         }
       }
     }
