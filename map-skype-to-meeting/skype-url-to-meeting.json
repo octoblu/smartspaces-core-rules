@@ -16,7 +16,6 @@
         "params": {
           "operation": "update",
           "uuid": "{{data.genisys.room.genisys.currentMeeting.meetingId}}",
-          "genisys": "{{data.genisys}}",
           "as": "{{device.genisys.devices.meeting-group.uuid}}",
           "data": {
             "$set": {
