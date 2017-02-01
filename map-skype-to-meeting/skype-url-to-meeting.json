@@ -34,7 +34,8 @@
       "as": "{{device.genisys.devices.meeting-group.uuid}}",
       "data": {
         "$unset": {
-          "genisys.skypeUrl": true
+          "genisys.skypeUrl": true,
+          "roomGenisys": "{{data.genisys.room.genisys}}"
         }
       }
     }
