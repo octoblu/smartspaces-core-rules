@@ -1,0 +1,50 @@
+{
+  "rules": {
+    "updateLightWhenCurrentMeetingExists": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".genisys.currentMeeting",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.genisys.devices.light.uuid}}",
+          "as": "{{device.genisys.devices.light-group.uuid}}",
+          "data": {
+            "$set": {
+              "desiredState": {
+                "color": "#440000",
+                "on": true
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "noevents": [
+    {
+      "type": "meshblu",
+      "params": {
+        "operation": "update",
+        "uuid": "{{data.genisys.devices.hue-light.uuid}}",
+        "as": "{{device.genisys.devices.hue-light-group.uuid}}",
+        "data": {
+          "$set": {
+            "desiredState": {
+              "color": "#004400",
+              "on": true
+            }
+          }
+        }
+      }
+    }
+  ]
+}
