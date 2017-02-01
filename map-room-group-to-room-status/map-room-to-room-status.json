@@ -20,7 +20,7 @@
               "genisys.rooms.{{data.uuid}}": {
                 "uuid": "{{data.uuid}}",
                 "name": "{{data.name}}",
-                "genisys": "{{data.genisys}}",
+                "genisys": "{{data.genisys}}"
               }
             }
           }
