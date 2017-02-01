@@ -17,7 +17,7 @@
           "uuid": "{{device.genisys.devices.room-group-status.uuid}}",
           "data": {
             "$set": {
-              "genisys.rooms.{{data.uuid}}": data
+              "genisys.rooms.{{data.uuid}}": "{{data}}"
             }
           }
         }
