@@ -30,12 +30,11 @@
     "type": "meshblu",
     "params": {
       "operation": "update",
-      "uuid": "{{data.genisys.room.genisys.currentMeeting.uuid}}",
+      "uuid": "{{data.genisys.room.genisys.currentMeeting.meetingId}}",
       "as": "{{device.genisys.devices.meeting-group.uuid}}",
       "data": {
         "$unset": {
-          "genisys.skypeUrl": true,
-          "roomGenisysCurrentMeeting": "{{data.genisys.room.genisys.currentMeeting}}"
+          "genisys.skypeUrl": true
         }
       }
     }
