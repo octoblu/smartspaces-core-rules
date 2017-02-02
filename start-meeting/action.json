@@ -10,6 +10,12 @@
             "value": true
           },
           {
+            "fact": "device",
+            "path": ".genisys.room.genisys.currentMeeting",
+            "operator": "exists",
+            "value": false
+          },
+          {
             "fact": "data",
             "path": ".data.device.genisys.roomId",
             "operator": "exists",
