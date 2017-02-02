@@ -11,6 +11,12 @@
           },
           {
             "fact": "data",
+            "path": ".data.device.genisys.roomDevices.room.genisys.inSkype",
+            "operator": "equal",
+            "value": false
+          },
+          {
+            "fact": "data",
             "path": ".data.device.genisys.roomDevices.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
             "operator": "exists",
             "value": true
@@ -43,6 +49,12 @@
             "path": ".data.device.genisys.roomDevices.room.genisys.roomDevices.skype.uuid",
             "operator": "exists",
             "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".data.device.genisys.roomDevices.room.genisys.inSkype",
+            "operator": "equal",
+            "value": false
           },
           {
             "fact": "data",
