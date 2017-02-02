@@ -14,12 +14,6 @@
             "path": ".metadata.jobType",
             "operator": "equal",
             "value": "end-skype"
-          },
-          {
-            "fact": "data",
-            "path": ".data.room.genisys.roomDevices.skype.uuid",
-            "operator": "exists",
-            "value": true
           }
         ]
       },
