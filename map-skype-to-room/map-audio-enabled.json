@@ -5,8 +5,8 @@
         "all": [
           {
             "fact": "data",
-            "operator": "exists",
             "path": ".genisys.roomId",
+            "operator": "exists",
             "value": true
           },
           {

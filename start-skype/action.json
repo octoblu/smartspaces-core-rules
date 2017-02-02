@@ -5,15 +5,15 @@
         "all": [
           {
             "fact": "data",
-            "path": ".metadata.jobType",
-            "operator": "equal",
-            "value": "start-skype"
-          },
-          {
-            "fact": "data",
             "path": ".data.room.genisys.roomDevices.skype.uuid",
             "operator": "exists",
             "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".metadata.jobType",
+            "operator": "equal",
+            "value": "start-skype"
           },
           {
             "fact": "data",
