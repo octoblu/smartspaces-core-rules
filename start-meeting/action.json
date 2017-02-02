@@ -5,6 +5,12 @@
         "all": [
           {
             "fact": "device",
+            "path": ".genisys.room.genisys.currentMeeting",
+            "operator": "exists",
+            "value": false
+          },
+          {
+            "fact": "device",
             "path": ".genisys.devices.endo-genisys-meeting.uuid",
             "operator": "exists",
             "value": true

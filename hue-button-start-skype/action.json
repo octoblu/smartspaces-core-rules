@@ -4,22 +4,16 @@
       "conditions": {
         "all": [
           {
-            "fact": "data",
-            "path": ".metadata.jobType",
+            "fact": "device",
+            "path": ".genisys.room.genisys.currentMeeting",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "device",
+            "path": ".genisys.room.genisys.inSkype",
             "operator": "equal",
-            "value": "start-skype"
-          },
-          {
-            "fact": "data",
-            "path": ".data.room.genisys.roomDevices.skype.uuid",
-            "operator": "exists",
-            "value": true
-          },
-          {
-            "fact": "data",
-            "path": ".data.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
-            "operator": "exists",
-            "value": true
+            "value": false
           }
         ]
       },
