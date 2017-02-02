@@ -1,11 +1,12 @@
 {
-  "rules": {
+  "if": {
     "updateRoomStatusWhenRoomChanges": {
       "conditions": {
         "all": [
           {
-            "fact": "data",
+            "fact": "device",
             "operator": "exists",
+            "path": ".genisys.devices.room-group-status.uuid",
             "value": true
           }
         ]

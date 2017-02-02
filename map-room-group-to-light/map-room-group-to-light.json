@@ -1,8 +1,14 @@
 {
-  "rules": {
+  "if": {
     "updateLightWhenCurrentMeetingExists": {
       "conditions": {
         "all": [
+          {
+            "fact": "data",
+            "path": ".genisys.devices.hue-light.uuid",
+            "operator": "exists",
+            "value": true
+          },
           {
             "fact": "data",
             "path": ".genisys.currentMeeting",
@@ -29,22 +35,34 @@
       }
     }
   },
-  "noevents": [
-    {
-      "type": "meshblu",
-      "params": {
-        "operation": "update",
-        "uuid": "{{data.genisys.devices.hue-light.uuid}}",
-        "as": "{{device.genisys.devices.hue-light-group.uuid}}",
-        "data": {
-          "$set": {
-            "desiredState": {
-              "color": "#004400",
-              "on": true
+  "else": {
+    "updateLightWhenNoCurrentMeetingExists": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".genisys.devices.hue-light.uuid",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.genisys.devices.hue-light.uuid}}",
+          "as": "{{device.genisys.devices.hue-light-group.uuid}}",
+          "data": {
+            "$set": {
+              "desiredState": {
+                "color": "#004400",
+                "on": true
+              }
             }
           }
         }
       }
     }
-  ]
+  }
 }

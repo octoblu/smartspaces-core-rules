@@ -1,8 +1,14 @@
 {
-  "rules": {
+  "if": {
     "whenSkypeHasUrlUpdateMeeting": {
       "conditions": {
         "all": [
+          {
+            "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.room.genisys.currentMeeting.meetingId",
+            "value": true
+          },
           {
             "fact": "data",
             "path": ".state.meeting.url",
@@ -26,17 +32,31 @@
       }
     }
   },
-  "noevents": [{
-    "type": "meshblu",
-    "params": {
-      "operation": "update",
-      "uuid": "{{data.genisys.room.genisys.currentMeeting.meetingId}}",
-      "as": "{{device.genisys.devices.meeting-group.uuid}}",
-      "data": {
-        "$unset": {
-          "genisys.skypeUrl": true
+  "else": {
+    "whenSkypeHasNoUrlUpdateMeeting": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.room.genisys.currentMeeting.meetingId",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.genisys.room.genisys.currentMeeting.meetingId}}",
+          "as": "{{device.genisys.devices.meeting-group.uuid}}",
+          "data": {
+            "$unset": {
+              "genisys.skypeUrl": true
+            }
+          }
         }
       }
     }
-  }]
+  }
 }

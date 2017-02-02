@@ -1,19 +1,19 @@
 {
   "if": {
-    "endMeetingInRoom": {
+    "setSkypeUrlOnSkypeDevice": {
       "conditions": {
         "all": [
           {
             "fact": "data",
-            "path": ".data.room.genisys.roomDevices.skype.uuid",
+            "path": ".data.device.genisys.roomDevices.room.genisys.roomDevices.skype.uuid",
             "operator": "exists",
             "value": true
           },
           {
             "fact": "data",
-            "path": ".metadata.jobType",
+            "path": ".data.device.genisys.roomDevices.room.genisys.inSkype",
             "operator": "equal",
-            "value": "end-meeting"
+            "value": true
           }
         ]
       },
@@ -22,12 +22,10 @@
         "params": {
           "operation": "update",
           "as": "{{device.genisys.devices.skype-group.uuid}}",
-          "uuid": "{{data.data.room.genisys.roomDevices.skype.uuid}}",
+          "uuid": "{{data.data.device.genisys.roomDevices.room.genisys.roomDevices.skype.uuid}}",
           "data": {
             "$set": {
-              "desiredState" : {
-                "meeting": null
-              }
+              "desiredState.meeting": null
             }
           }
         }

@@ -1,0 +1,131 @@
+{
+  "if": {
+    "startMeeting": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "device",
+            "path": ".genisys.devices.endo-genisys-meeting.uuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".data.device.genisys.roomDevices.room.genisys.currentMeeting",
+            "operator": "exists",
+            "value": false
+          },
+          {
+            "fact": "data",
+            "path": ".data.device.genisys.roomId",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "message",
+          "message": {
+            "devices": ["{{device.genisys.devices.endo-genisys-meeting.uuid}}"],
+            "metadata": {
+              "jobType": "UpsertMeeting"
+            },
+            "data": {
+              "subject": "Instant Meeting",
+              "room": {
+                "roomId": "{{data.data.device.genisys.roomId}}"
+              },
+              "attendees": []
+            }
+          }
+        }
+      }
+    }
+  },
+  "else": {
+    "setSkypeUrlOnSkypeDevice": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".data.device.genisys.roomDevices.room.genisys.roomDevices.skype.uuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".data.device.genisys.roomDevices.room.genisys.inSkype",
+            "operator": "equal",
+            "value": false
+          },
+          {
+            "fact": "data",
+            "path": ".data.device.genisys.roomDevices.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "as": "{{device.genisys.devices.skype-group.uuid}}",
+          "uuid": "{{data.data.device.genisys.roomDevices.room.genisys.roomDevices.skype.uuid}}",
+          "data": {
+            "$set": {
+              "desiredState.meeting": {
+                  "url": "{{data.data.device.genisys.roomDevices.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url}}"
+              },
+              "desiredState.videoEnabled": true,
+              "desiredState.audioEnabled": true
+            }
+          }
+        }
+      }
+    },
+    "setNullSkypeUrlOnSkypeDevice": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".data.device.genisys.roomDevices.room.genisys.roomDevices.skype.uuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".data.device.genisys.roomDevices.room.genisys.inSkype",
+            "operator": "equal",
+            "value": false
+          },
+          {
+            "fact": "data",
+            "path": ".data.device.genisys.roomDevices.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
+            "operator": "exists",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "as": "{{device.genisys.devices.skype-group.uuid}}",
+          "uuid": "{{data.data.device.genisys.roomDevices.room.genisys.roomDevices.skype.uuid}}",
+          "data": {
+            "$set": {
+              "desiredState.meeting": {
+                  "url": null
+              },
+              "desiredState.videoEnabled": true,
+              "desiredState.audioEnabled": true
+            }
+          }
+        }
+      }
+    }
+  }
+}
