@@ -2,17 +2,25 @@
   "if": {
     "addPeopleInRoom": {
       "conditions": {
-        "all": [{
-          "fact": "data",
-          "path": ".genisys.inSkype",
-          "operator": "equal",
-          "value": true
-        }, {
-          "fact": "data",
-          "path": ".genisys.currentMeeting",
-          "operator": "exists",
-          "value": false
-        }]
+        "all": [
+          {
+            "fact": "data",
+            "path": ".genisys.devices.activities.uuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".genisys.inSkype",
+            "operator": "equal",
+            "value": true
+          }, {
+            "fact": "data",
+            "path": ".genisys.currentMeeting",
+            "operator": "exists",
+            "value": false
+          }
+        ]
       },
       "event": {
         "type": "meshblu",
@@ -44,17 +52,25 @@
     },
     "addPeopleByAttendee": {
       "conditions": {
-        "all": [{
-          "fact": "data",
-          "path": ".genisys.inSkype",
-          "operator": "equal",
-          "value": true
-        }, {
-          "fact": "data",
-          "path": ".genisys.currentMeeting",
-          "operator": "exists",
-          "value": true
-        }]
+        "all": [
+          {
+            "fact": "data",
+            "path": ".genisys.devices.activities.uuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".genisys.inSkype",
+            "operator": "equal",
+            "value": true
+          }, {
+            "fact": "data",
+            "path": ".genisys.currentMeeting",
+            "operator": "exists",
+            "value": true
+          }
+        ]
       },
       "event": {
         "type": "meshblu",

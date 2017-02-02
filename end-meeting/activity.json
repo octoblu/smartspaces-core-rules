@@ -5,6 +5,12 @@
         "all": [
           {
             "fact": "data",
+            "path": ".genisys.devices.activities.uuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
             "path": ".genisys.currentMeeting",
             "operator": "exists",
             "value": true

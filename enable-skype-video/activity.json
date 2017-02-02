@@ -17,9 +17,9 @@
           },
           {
             "fact": "data",
+            "path": ".genisys.videoEnabled",
             "operator": "equal",
-            "value": false,
-            "path": ".genisys.videoEnabled"
+            "value": false
           }
         ]
       },

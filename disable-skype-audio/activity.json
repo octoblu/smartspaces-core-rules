@@ -11,15 +11,15 @@
           },
           {
             "fact": "data",
+            "path": ".genisys.inSkype",
             "operator": "equal",
-            "value": true,
-            "path": ".genisys.inSkype"
+            "value": true
           },
           {
             "fact": "data",
+            "path": ".genisys.audioEnabled",
             "operator": "equal",
-            "value": true,
-            "path": ".genisys.audioEnabled"
+            "value": true
           }
         ]
       },
