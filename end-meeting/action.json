@@ -1,8 +1,14 @@
 {
-  "rules": {
+  "if": {
     "endMeetingInRoom": {
       "conditions": {
         "all": [
+          {
+            "fact": "device",
+            "path": ".genisys.devices.endo-genisys-meeting.uuid",
+            "operator": "exists",
+            "value": true
+          },
           {
             "fact": "data",
             "path": ".metadata.jobType",

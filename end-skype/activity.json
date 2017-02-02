@@ -1,12 +1,12 @@
 {
-  "rules": {
+  "if": {
     "addPeopleInRoom": {
       "conditions": {
         "all": [{
           "fact": "data",
+          "path": ".genisys.inSkype",
           "operator": "equal",
-          "value": true,
-          "path": ".genisys.inSkype"
+          "value": true
         }, {
           "fact": "data",
           "path": ".genisys.currentMeeting",
@@ -46,9 +46,9 @@
       "conditions": {
         "all": [{
           "fact": "data",
+          "path": ".genisys.inSkype",
           "operator": "equal",
-          "value": true,
-          "path": ".genisys.inSkype"
+          "value": true
         }, {
           "fact": "data",
           "path": ".genisys.currentMeeting",
@@ -87,17 +87,31 @@
       }
     }
   },
-  "noevents": [{
-    "type": "meshblu",
-    "params": {
-      "operation": "update",
-      "uuid": "{{data.genisys.devices.activities.uuid}}",
-      "as": "{{data.uuid}}",
-      "data": {
-        "$unset": {
-          "genisys.activities.endSkype": true
+  "else": {
+    "unset": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".genisys.devices.activities.uuid",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.genisys.devices.activities.uuid}}",
+          "as": "{{data.uuid}}",
+          "data": {
+            "$unset": {
+              "genisys.activities.endSkype": true
+            }
+          }
         }
       }
     }
-  }]
+  }
 }

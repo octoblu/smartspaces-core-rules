@@ -1,8 +1,14 @@
 {
-  "rules": {
+  "if": {
     "updateVideoEnabledWhenTrue": {
       "conditions": {
         "all": [
+          {
+            "fact": "data",
+            "path": ".genisys.roomId",
+            "operator": "exists",
+            "value": true
+          },
           {
             "fact": "data",
             "path": ".state.videoEnabled",
@@ -30,6 +36,12 @@
         "all": [
           {
             "fact": "data",
+            "path": ".genisys.roomId",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
             "path": ".state.videoEnabled",
             "operator": "equal",
             "value": false
@@ -51,19 +63,31 @@
       }
     }
   },
-  "noevents": [
-    {
-      "type": "meshblu",
-      "params": {
-        "operation": "update",
-        "uuid": "{{data.genisys.roomId}}",
-        "as": "{{data.uuid}}",
-        "data": {
-          "$unset": {
-            "genisys.videoEnabled": false
+  "else": {
+    "unset": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".genisys.roomId",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.genisys.roomId}}",
+          "as": "{{data.uuid}}",
+          "data": {
+            "$unset": {
+              "genisys.videoEnabled": false
+            }
           }
         }
       }
     }
-  ]
+  }
 }

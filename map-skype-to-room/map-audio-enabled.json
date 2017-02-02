@@ -1,8 +1,14 @@
 {
-  "rules": {
+  "if": {
     "updateAudioEnabledWhenTrue": {
       "conditions": {
         "all": [
+          {
+            "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.roomId",
+            "value": true
+          },
           {
             "fact": "data",
             "path": ".state.audioEnabled",
@@ -30,8 +36,14 @@
         "all": [
           {
             "fact": "data",
-            "path": ".state.audioEnabled",
+            "operator": "exists",
+            "path": ".genisys.roomId",
+            "value": true
+          },
+          {
+            "fact": "data",
             "operator": "equal",
+            "path": ".state.audioEnabled",
             "value": false
           }
         ]
@@ -51,19 +63,31 @@
       }
     }
   },
-  "noevents": [
-    {
-      "type": "meshblu",
-      "params": {
-        "operation": "update",
-        "uuid": "{{data.genisys.roomId}}",
-        "as": "{{data.uuid}}",
-        "data": {
-          "$unset": {
-            "genisys.audioEnabled": false
+  "else": {
+    "unset": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".genisys.roomId",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.genisys.roomId}}",
+          "as": "{{data.uuid}}",
+          "data": {
+            "$unset": {
+              "genisys.audioEnabled": false
+            }
           }
         }
       }
     }
-  ]
+  }
 }

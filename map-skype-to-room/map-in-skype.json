@@ -1,19 +1,29 @@
 {
-  "rules": {
+  "if": {
     "whenNotInSkypeUpdateRoom": {
       "conditions": {
-        "any": [
+        "all": [
           {
             "fact": "data",
-            "path": ".state.meeting",
-            "operator": "equal",
-            "value": null
+            "path": ".genisys.roomId",
+            "operator": "exists",
+            "value": true
           },
           {
-            "fact": "data",
-            "path": ".state.meeting",
-            "operator": "exists",
-            "value": false
+            "any": [
+              {
+                "fact": "data",
+                "path": ".state.meeting",
+                "operator": "equal",
+                "value": null
+              },
+              {
+                "fact": "data",
+                "path": ".state.meeting",
+                "operator": "exists",
+                "value": false
+              }
+            ]
           }
         ]
       },
@@ -32,17 +42,31 @@
       }
     }
   },
-  "noevents": [{
-    "type": "meshblu",
-    "params": {
-      "operation": "update",
-      "uuid": "{{data.genisys.roomId}}",
-      "as": "{{data.uuid}}",
-      "data": {
-        "$set": {
-          "genisys.inSkype": true
+  "else": {
+    "unset": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".genisys.roomId",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.genisys.roomId}}",
+          "as": "{{data.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.inSkype": true
+            }
+          }
         }
       }
     }
-  }]
+  }
 }

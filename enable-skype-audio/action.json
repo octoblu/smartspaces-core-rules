@@ -1,8 +1,14 @@
 {
-  "rules": {
+  "if": {
     "enableSkypeAudioInSkypeDevice": {
       "conditions": {
         "all": [
+          {
+            "fact": "data",
+            "path": ".data.skype.uuid",
+            "operator": "exists",
+            "value": true
+          },
           {
             "fact": "data",
             "path": ".metadata.jobType",

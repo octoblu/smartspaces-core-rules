@@ -1,8 +1,14 @@
 {
-  "rules": {
+  "if": {
     "endMeetingInRoom": {
       "conditions": {
         "all": [
+          {
+            "fact": "data",
+            "path": ".data.room.genisys.devices.skype.uuid",
+            "operator": "exists",
+            "value": true
+          },
           {
             "fact": "data",
             "path": ".metadata.jobType",
