@@ -4,7 +4,7 @@
       "conditions": {
         "all": [
           {
-            "fact": "device",
+            "fact": "data",
             "path": ".genisys.devices.activities.uuid",
             "operator": "exists",
             "value": true
