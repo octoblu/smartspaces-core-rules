@@ -6,7 +6,7 @@
           {
             "fact": "data",
             "operator": "exists",
-            "path": ".genisys.room.genisys.currentMeeting.meetingId",
+            "path": ".genisys.roomDevices.room.genisys.currentMeeting.meetingId",
             "value": true
           },
           {
@@ -21,7 +21,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{data.genisys.room.genisys.currentMeeting.meetingId}}",
+          "uuid": "{{data.genisys.roomDevices.room.genisys.currentMeeting.meetingId}}",
           "as": "{{device.genisys.devices.meeting-group.uuid}}",
           "data": {
             "$set": {
@@ -39,7 +39,7 @@
           {
             "fact": "data",
             "operator": "exists",
-            "path": ".genisys.room.genisys.currentMeeting.meetingId",
+            "path": ".genisys.roomDevices.room.genisys.currentMeeting.meetingId",
             "value": true
           }
         ]
@@ -48,7 +48,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{data.genisys.room.genisys.currentMeeting.meetingId}}",
+          "uuid": "{{data.genisys.roomDevices.room.genisys.currentMeeting.meetingId}}",
           "as": "{{device.genisys.devices.meeting-group.uuid}}",
           "data": {
             "$unset": {
