@@ -21,7 +21,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{data.genisys.devices.hue-light.uuid}}",
+          "uuid": "{{data.genisys.devices.hueLight.uuid}}",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "data": {
             "$set": {
@@ -51,7 +51,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{data.genisys.devices.hue-light.uuid}}",
+          "uuid": "{{data.genisys.devices.hueLight.uuid}}",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "data": {
             "$set": {

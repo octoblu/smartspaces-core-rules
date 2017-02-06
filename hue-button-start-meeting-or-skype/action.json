@@ -5,7 +5,7 @@
         "all": [
           {
             "fact": "device",
-            "path": ".genisys.devices.endo-genisys-meeting.uuid",
+            "path": ".genisys.devices.endoGenisysMeeting.uuid",
             "operator": "exists",
             "value": true
           },
@@ -28,7 +28,7 @@
         "params": {
           "operation": "message",
           "message": {
-            "devices": ["{{device.genisys.devices.endo-genisys-meeting.uuid}}"],
+            "devices": ["{{device.genisys.devices.endoGenisysMeeting.uuid}}"],
             "metadata": {
               "jobType": "UpsertMeeting"
             },

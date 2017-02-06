@@ -6,7 +6,7 @@
           {
             "fact": "device",
             "operator": "exists",
-            "path": ".genisys.devices.room-group-status.uuid",
+            "path": ".genisys.devices.roomGroupStatus.uuid",
             "value": true
           }
         ]
@@ -15,7 +15,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{device.genisys.devices.room-group-status.uuid}}",
+          "uuid": "{{device.genisys.devices.roomGroupStatus.uuid}}",
           "data": {
             "$set": {
               "genisys.rooms.{{data.uuid}}": {
