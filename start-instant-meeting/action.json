@@ -2,16 +2,10 @@
   "conditions": {
     "all": [
       {
-        "fact": "device",
-        "path": ".genisys.devices.endo-genisys-meeting.uuid",
-        "operator": "exists",
-        "value": true
-      },
-      {
         "fact": "data",
-        "path": ".data.roomId",
-        "operator": "exists",
-        "value": true
+        "path": ".metadata.jobType",
+        "operator": "equal",
+        "value": "start-instant-meeting"
       }
     ]
   },
