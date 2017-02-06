@@ -27,7 +27,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "as": "{{device.genisys.devices.customer.uuid}}",
+          "as": "{{device.genisys.devices.skype-group.uuid}}",
           "uuid": "{{data.data.room.genisys.roomDevices.skype.uuid}}",
           "data": {
             "$set": {
@@ -68,7 +68,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "as": "{{device.genisys.devices.customer.uuid}}",
+          "as": "{{device.genisys.devices.skype-group.uuid}}",
           "uuid": "{{data.data.room.genisys.roomDevices.skype.uuid}}",
           "data": {
             "$set": {
