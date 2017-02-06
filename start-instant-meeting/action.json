@@ -1,0 +1,37 @@
+{
+  "conditions": {
+    "all": [
+      {
+        "fact": "device",
+        "path": ".genisys.devices.endo-genisys-meeting.uuid",
+        "operator": "exists",
+        "value": true
+      },
+      {
+        "fact": "data",
+        "path": ".data.roomId",
+        "operator": "exists",
+        "value": true
+      }
+    ]
+  },
+  "event": {
+    "type": "meshblu",
+    "params": {
+      "operation": "message",
+      "message": {
+        "devices": ["{{device.genisys.devices.endo-genisys-meeting.uuid}}"],
+        "metadata": {
+          "jobType": "UpsertMeeting"
+        },
+        "data": {
+          "subject": "Instant Meeting",
+          "room": {
+            "roomId": "{{data.roomId}}"
+          },
+          "attendees": []
+        }
+      }
+    }
+  }
+}
