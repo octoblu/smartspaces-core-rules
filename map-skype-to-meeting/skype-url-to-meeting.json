@@ -22,7 +22,7 @@
         "params": {
           "operation": "update",
           "uuid": "{{data.genisys.roomDevices.room.genisys.currentMeeting.meetingId}}",
-          "as": "{{device.genisys.devices.meeting-group.uuid}}",
+          "as": "{{device.genisys.devices.customer.uuid}}",
           "data": {
             "$set": {
               "genisys.skypeUrl": "{{data.state.meeting.url}}"
@@ -49,7 +49,7 @@
         "params": {
           "operation": "update",
           "uuid": "{{data.genisys.roomDevices.room.genisys.currentMeeting.meetingId}}",
-          "as": "{{device.genisys.devices.meeting-group.uuid}}",
+          "as": "{{device.genisys.devices.customer.uuid}}",
           "data": {
             "$unset": {
               "genisys.skypeUrl": true

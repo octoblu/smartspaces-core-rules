@@ -21,7 +21,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "as": "{{device.genisys.devices.skype-group.uuid}}",
+          "as": "{{device.genisys.devices.customer.uuid}}",
           "uuid": "{{data.data.skype.uuid}}",
           "data": {
             "$set": {
