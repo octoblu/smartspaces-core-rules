@@ -5,7 +5,7 @@
         "all": [
           {
             "fact": "data",
-            "path": ".data.room.genisys.roomDevices.skype.uuid",
+            "path": ".data.room.genisys.devices.skype.uuid",
             "operator": "exists",
             "value": true
           },
@@ -21,8 +21,8 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "as": "{{device.genisys.devices.customer.uuid}}",
-          "uuid": "{{data.data.room.genisys.roomDevices.skype.uuid}}",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "uuid": "{{data.data.room.genisys.devices.skype.uuid}}",
           "data": {
             "$set": {
               "desiredState" : {
