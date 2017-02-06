@@ -11,7 +11,7 @@
           },
           {
             "fact": "data",
-            "path": ".data.device.genisys.room.genisys.currentMeeting",
+            "path": ".data.device.genisys.roomDevices.room.genisys.currentMeeting",
             "operator": "exists",
             "value": false
           },
@@ -50,19 +50,19 @@
         "all": [
           {
             "fact": "data",
-            "path": ".data.device.genisys.room.genisys.devices.skype.uuid",
+            "path": ".data.device.genisys.roomDevices.room.genisys.roomDevices.skype.uuid",
             "operator": "exists",
             "value": true
           },
           {
             "fact": "data",
-            "path": ".data.device.genisys.room.genisys.inSkype",
+            "path": ".data.device.genisys.roomDevices.room.genisys.inSkype",
             "operator": "equal",
             "value": false
           },
           {
             "fact": "data",
-            "path": ".data.device.genisys.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
+            "path": ".data.device.genisys.roomDevices.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
             "operator": "exists",
             "value": true
           }
@@ -72,12 +72,12 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "uuid": "{{data.data.device.genisys.room.genisys.devices.skype.uuid}}",
+          "as": "{{device.genisys.devices.customer.uuid}}",
+          "uuid": "{{data.data.device.genisys.roomDevices.room.genisys.roomDevices.skype.uuid}}",
           "data": {
             "$set": {
               "desiredState.meeting": {
-                  "url": "{{data.data.device.genisys.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url}}"
+                  "url": "{{data.data.device.genisys.roomDevices.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url}}"
               },
               "desiredState.videoEnabled": true,
               "desiredState.audioEnabled": true
@@ -91,19 +91,19 @@
         "all": [
           {
             "fact": "data",
-            "path": ".data.device.genisys.room.genisys.devices.skype.uuid",
+            "path": ".data.device.genisys.roomDevices.room.genisys.roomDevices.skype.uuid",
             "operator": "exists",
             "value": true
           },
           {
             "fact": "data",
-            "path": ".data.device.genisys.room.genisys.inSkype",
+            "path": ".data.device.genisys.roomDevices.room.genisys.inSkype",
             "operator": "equal",
             "value": false
           },
           {
             "fact": "data",
-            "path": ".data.device.genisys.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
+            "path": ".data.device.genisys.roomDevices.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
             "operator": "exists",
             "value": false
           }
@@ -113,8 +113,8 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "uuid": "{{data.data.device.genisys.room.genisys.devices.skype.uuid}}",
+          "as": "{{device.genisys.devices.customer.uuid}}",
+          "uuid": "{{data.data.device.genisys.roomDevices.room.genisys.roomDevices.skype.uuid}}",
           "data": {
             "$set": {
               "desiredState.meeting": {
