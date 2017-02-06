@@ -6,7 +6,7 @@
           {
             "fact": "data",
             "operator": "exists",
-            "path": ".genisys.roomDevices.room.genisys.currentMeeting.meetingId",
+            "path": ".genisys.room.genisys.currentMeeting.meetingId",
             "value": true
           },
           {
@@ -21,8 +21,8 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{data.genisys.roomDevices.room.genisys.currentMeeting.meetingId}}",
-          "as": "{{device.genisys.devices.meeting-group.uuid}}",
+          "uuid": "{{data.genisys.room.genisys.currentMeeting.meetingId}}",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "data": {
             "$set": {
               "genisys.skypeUrl": "{{data.state.meeting.url}}"
@@ -39,7 +39,7 @@
           {
             "fact": "data",
             "operator": "exists",
-            "path": ".genisys.roomDevices.room.genisys.currentMeeting.meetingId",
+            "path": ".genisys.room.genisys.currentMeeting.meetingId",
             "value": true
           }
         ]
@@ -48,8 +48,8 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{data.genisys.roomDevices.room.genisys.currentMeeting.meetingId}}",
-          "as": "{{device.genisys.devices.meeting-group.uuid}}",
+          "uuid": "{{data.genisys.room.genisys.currentMeeting.meetingId}}",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "data": {
             "$unset": {
               "genisys.skypeUrl": true

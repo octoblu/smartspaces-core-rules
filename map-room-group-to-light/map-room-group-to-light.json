@@ -22,7 +22,7 @@
         "params": {
           "operation": "update",
           "uuid": "{{data.genisys.devices.hue-light.uuid}}",
-          "as": "{{device.genisys.devices.hue-light-group.uuid}}",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "data": {
             "$set": {
               "desiredState": {
@@ -52,7 +52,7 @@
         "params": {
           "operation": "update",
           "uuid": "{{data.genisys.devices.hue-light.uuid}}",
-          "as": "{{device.genisys.devices.hue-light-group.uuid}}",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "data": {
             "$set": {
               "desiredState": {

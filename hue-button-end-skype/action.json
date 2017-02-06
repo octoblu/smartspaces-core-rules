@@ -5,13 +5,13 @@
         "all": [
           {
             "fact": "data",
-            "path": ".data.device.genisys.roomDevices.room.genisys.roomDevices.skype.uuid",
+            "path": ".data.device.genisys.room.genisys.devices.skype.uuid",
             "operator": "exists",
             "value": true
           },
           {
             "fact": "data",
-            "path": ".data.device.genisys.roomDevices.room.genisys.inSkype",
+            "path": ".data.device.genisys.room.genisys.inSkype",
             "operator": "equal",
             "value": true
           }
@@ -21,8 +21,8 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "as": "{{device.genisys.devices.skype-group.uuid}}",
-          "uuid": "{{data.data.device.genisys.roomDevices.room.genisys.roomDevices.skype.uuid}}",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "uuid": "{{data.data.device.genisys.room.genisys.devices.skype.uuid}}",
           "data": {
             "$set": {
               "desiredState.meeting": null
