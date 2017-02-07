@@ -15,6 +15,7 @@
       "operation": "message",
       "message": {
         "devices": [
+          "*",
           "{{device.genisys.devices.endo-genisys-meeting.uuid}}"
         ],
         "metadata": {
