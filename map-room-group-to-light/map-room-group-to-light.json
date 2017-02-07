@@ -5,7 +5,7 @@
         "all": [
           {
             "fact": "data",
-            "path": ".genisys.devices.hue-light.uuid",
+            "path": ".genisys.devices.hueLight.uuid",
             "operator": "exists",
             "value": true
           },
