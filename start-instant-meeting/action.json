@@ -1,0 +1,33 @@
+{
+  "conditions": {
+    "all": [
+      {
+        "fact": "data",
+        "path": ".metadata.jobType",
+        "operator": "equal",
+        "value": "start-instant-meeting"
+      }
+    ]
+  },
+  "event": {
+    "type": "meshblu",
+    "params": {
+      "operation": "message",
+      "message": {
+        "devices": [
+          "{{device.genisys.devices.endoGenisysMeeting.uuid}}"
+        ],
+        "metadata": {
+          "jobType": "UpsertMeeting"
+        },
+        "data": {
+          "subject": "Instant Meeting",
+          "room": {
+            "roomId": "{{data.roomId}}"
+          },
+          "attendees": [ ]
+        }
+      }
+    }
+  }
+}
