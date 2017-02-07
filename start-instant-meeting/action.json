@@ -5,12 +5,6 @@
         "all": [
           {
             "fact": "data",
-            "path": ".data.roomId",
-            "operator": "exists",
-            "value": true
-          },
-          {
-            "fact": "data",
             "path": ".metadata.jobType",
             "operator": "equal",
             "value": "start-instant-meeting"
