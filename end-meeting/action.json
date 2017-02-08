@@ -4,12 +4,6 @@
       "conditions": {
         "all": [
           {
-            "fact": "device",
-            "path": ".genisys.customerDevices.meetingGroupEndoMeeting.uuid",
-            "operator": "exists",
-            "value": true
-          },
-          {
             "fact": "data",
             "path": ".metadata.jobType",
             "operator": "equal",
