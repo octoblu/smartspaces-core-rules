@@ -5,7 +5,7 @@
         "all": [
           {
             "fact": "device",
-            "path": ".genisys.devices.endoGenisysMeeting.uuid",
+            "path": ".genisys.customerDevices.meetingGroupEndoMeeting.uuid",
             "operator": "exists",
             "value": true
           },
@@ -22,7 +22,7 @@
         "params": {
           "operation": "message",
           "message": {
-            "devices": ["{{device.genisys.devices.endoGenisysMeeting.uuid}}"],
+            "devices": ["{{device.genisys.devices.meetingGroupEndoMeeting.uuid}}"],
             "metadata": {
               "jobType": "EndMeeting"
             },
