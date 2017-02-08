@@ -5,7 +5,7 @@
         "all": [
           {
             "fact": "device",
-            "path": ".genisys.devices.endoGenisysMeeting.uuid",
+            "path": ".genisys.customerDevices.meetingGroupEndoMeeting.uuid",
             "operator": "exists",
             "value": true
           },
@@ -27,8 +27,9 @@
         "type": "meshblu",
         "params": {
           "operation": "message",
+          "as": "device.genisys.customerDevices.customer.uuid",
           "message": {
-            "devices": ["{{device.genisys.devices.endoGenisysMeeting.uuid}}"],
+            "devices": ["{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}"],
             "metadata": {
               "jobType": "UpsertMeeting"
             },
