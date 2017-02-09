@@ -15,6 +15,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "uuid": "{{device.genisys.customerDevices.roomGroupStatus.uuid}}",
           "data": {
             "$set": {
