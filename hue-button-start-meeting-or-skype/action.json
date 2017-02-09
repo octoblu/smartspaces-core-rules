@@ -14,7 +14,7 @@
       "event": {
         "type": "meshblu",
         "params": {
-          "operation": "die",
+          "operation": "message",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "message": {
             "devices": ["{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}"],
