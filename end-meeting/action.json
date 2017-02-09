@@ -15,7 +15,7 @@
         "type": "meshblu",
         "params": {
           "operation": "message",
-          "as": "device.genisys.customerDevices.customer.uuid",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "message": {
             "devices": ["{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}"],
             "metadata": {
