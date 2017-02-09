@@ -4,22 +4,10 @@
       "conditions": {
         "all": [
           {
-            "fact": "device",
-            "path": ".genisys.customerDevices.meetingGroupEndoMeeting.uuid",
-            "operator": "exists",
-            "value": true
-          },
-          {
             "fact": "data",
             "path": ".data.device.genisys.room.genisys.currentMeeting",
             "operator": "exists",
             "value": false
-          },
-          {
-            "fact": "data",
-            "path": ".data.device.genisys.roomId",
-            "operator": "exists",
-            "value": true
           }
         ]
       },
@@ -27,7 +15,7 @@
         "type": "meshblu",
         "params": {
           "operation": "message",
-          "as": "{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}",
+          "as": "not-this-uuid",
           "message": {
             "devices": ["{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}"],
             "metadata": {
