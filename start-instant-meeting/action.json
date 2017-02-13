@@ -1,30 +1,36 @@
 {
-  "conditions": {
-    "all": [
-      {
-        "fact": "data",
-        "path": ".metadata.jobType",
-        "operator": "equal",
-        "value": "start-instant-meeting"
-      }
-    ]
-  },
-  "event": {
-    "type": "meshblu",
-    "params": {
-      "operation": "message",
-      "as": "{{device.genisys.customerDevices.customer.uuid}}",
-      "message": {
-        "devices": ["{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}"],
-        "metadata": {
-          "jobType": "UpsertMeeting"
-        },
-        "data": {
-          "subject": "Instant Meeting",
-          "room": {
-            "roomId": "{{data.roomId}}"
-          },
-          "attendees": []
+  "if": {
+    "startInstantMeeting": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".metadata.jobType",
+            "operator": "equal",
+            "value": "start-instant-meeting"
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "message",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "message": {
+            "devices": [
+              "{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}"
+            ],
+            "metadata": {
+              "jobType": "UpsertMeeting"
+            },
+            "data": {
+              "subject": "Instant Meeting",
+              "room": {
+                "roomId": "{{data.data.roomId}}"
+              },
+              "attendees": []
+            }
+          }
         }
       }
     }
