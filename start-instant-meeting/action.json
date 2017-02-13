@@ -15,7 +15,7 @@
       "operation": "message",
       "as": "{{device.genisys.customerDevices.customer.uuid}}",
       "message": {
-        "devices": ["{{device.genisys.custromerDevices.endoGenisysMeeting.uuid}}"],
+        "devices": ["{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}"],
         "metadata": {
           "jobType": "UpsertMeeting"
         },
