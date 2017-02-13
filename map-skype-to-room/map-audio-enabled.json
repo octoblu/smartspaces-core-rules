@@ -22,7 +22,7 @@
         "params": {
           "operation": "update",
           "uuid": "{{data.genisys.roomId}}",
-          "as": "{{data.genisys.room.genisys.customerDevices.customer.uuid}}",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "data": {
             "$set": {
               "genisys.audioEnabled": true
@@ -53,7 +53,7 @@
         "params": {
           "operation": "update",
           "uuid": "{{data.genisys.roomId}}",
-          "as": "{{data.genisys.room.genisys.customerDevices.customer.uuid}}",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "data": {
             "$set": {
               "genisys.audioEnabled": false
@@ -80,7 +80,7 @@
         "params": {
           "operation": "update",
           "uuid": "{{data.genisys.roomId}}",
-          "as": "{{data.genisys.room.genisys.customerDevices.customer.uuid}}",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "data": {
             "$unset": {
               "genisys.audioEnabled": false
