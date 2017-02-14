@@ -8,6 +8,12 @@
             "operator": "exists",
             "path": ".genisys.customerDevices.roomGroupStatus.uuid",
             "value": true
+          },
+          {
+            "fact": "device",
+            "operator": "equal",
+            "path": ".type",
+            "value": "octoblu:smartspaces:room"
           }
         ]
       },
