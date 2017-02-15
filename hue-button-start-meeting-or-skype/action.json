@@ -8,7 +8,13 @@
             "path": ".data.device.genisys.room.genisys.currentMeeting",
             "operator": "exists",
             "value": false
-          }
+          },
+          {
+            "fact": "data",
+            "path": ".data.device.genisys.room.genisys.inSkype",
+            "operator": "notEqual",
+            "value": true
+          },
         ]
       },
       "event": {
