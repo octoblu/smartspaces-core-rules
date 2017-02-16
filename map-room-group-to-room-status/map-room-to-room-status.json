@@ -10,9 +10,9 @@
             "value": true
           },
           {
-            "fact": "device",
+            "fact": "data",
             "operator": "equal",
-            "path": ".type",
+            "path": "data.type",
             "value": "octoblu:smartspaces:room"
           }
         ]
