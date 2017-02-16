@@ -12,7 +12,7 @@
           {
             "fact": "data",
             "operator": "equal",
-            "path": ".data.type",
+            "path": ".type",
             "value": "octoblu:smartspaces:room"
           }
         ]
