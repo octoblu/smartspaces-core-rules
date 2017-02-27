@@ -83,6 +83,7 @@
             "$set": {
               "genisys.activities.endSkype": {
                 "title": "End Skype",
+                "order": 40,
                 "people": "{{data.genisys.people.byAttendee.isAttendee}}",
                 "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
                 "roomId": "{{data.uuid}}",
