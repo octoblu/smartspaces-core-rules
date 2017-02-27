@@ -33,6 +33,7 @@
             "$set": {
               "genisys.activities.enableSkypeAudio": {
                 "title": "Enable Audio",
+                "order": 20,
                 "people": "{{data.genisys.people.byAttendee.isAttendee}}",
                 "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
                 "roomId": "{{data.uuid}}",

@@ -33,6 +33,7 @@
             "$set": {
               "genisys.activities.startSkype": {
                 "title": "Start Skype",
+                "order": 10, 
                 "people": "{{data.genisys.people.byAttendee.isAttendee}}",
                 "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
                 "roomId": "{{data.uuid}}",

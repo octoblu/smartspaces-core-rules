@@ -33,6 +33,7 @@
             "$set": {
               "genisys.activities.disableSkypeAudio": {
                 "title": "Disable Audio",
+                "order": 20,
                 "people": "{{data.genisys.people.byAttendee.isAttendee}}",
                 "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
                 "roomId": "{{data.uuid}}",

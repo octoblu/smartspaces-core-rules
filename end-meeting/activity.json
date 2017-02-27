@@ -27,6 +27,7 @@
             "$set": {
               "genisys.activities.endMeeting": {
                 "title": "End Meeting",
+                "order": 50,
                 "people": "{{data.genisys.people.byAttendee.isAttendee}}",
                 "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
                 "roomId": "{{data.uuid}}",

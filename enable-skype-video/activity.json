@@ -33,6 +33,7 @@
             "$set": {
               "genisys.activities.enableSkypeVideo": {
                 "title": "Enable Video",
+                "order": 30,
                 "people": "{{data.genisys.people.byAttendee.isAttendee}}",
                 "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
                 "roomId": "{{data.uuid}}",
