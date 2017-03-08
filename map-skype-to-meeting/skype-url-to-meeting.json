@@ -31,32 +31,5 @@
         }
       }
     }
-  },
-  "else": {
-    "whenSkypeHasNoUrlUpdateMeeting": {
-      "conditions": {
-        "all": [
-          {
-            "fact": "data",
-            "operator": "exists",
-            "path": ".genisys.room.genisys.currentMeeting.meetingId",
-            "value": true
-          }
-        ]
-      },
-      "event": {
-        "type": "meshblu",
-        "params": {
-          "operation": "update",
-          "uuid": "{{data.genisys.room.genisys.currentMeeting.meetingId}}",
-          "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "data": {
-            "$unset": {
-              "genisys.skypeUrl": true
-            }
-          }
-        }
-      }
-    }
   }
 }
