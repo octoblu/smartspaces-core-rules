@@ -41,6 +41,53 @@
         }
       }
     },
+    "useSkypeUrlToJoin": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".data.room.genisys.devices.skype.uuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".metadata.jobType",
+            "operator": "equal",
+            "value": "start-skype"
+          },
+          {
+            "fact": "data",
+            "path": ".data.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
+            "operator": "exists",
+            "value": false
+          },
+          {
+            "fact": "data",
+            "path": ".data.room.genisys.currentMeeting.skypeUrl",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "uuid": "{{data.data.room.genisys.devices.skype.uuid}}",
+          "data": {
+            "$set": {
+              "desiredState.meeting": {
+                  "url": "{{data.data.room.genisys.currentMeeting.skypeUrl}}"
+              },
+              "desiredState.videoEnabled": true,
+              "desiredState.audioEnabled": true
+            }
+          }
+        }
+      }
+    },
     "setNullSkypeUrlOnSkypeDevice": {
       "conditions": {
         "all": [
