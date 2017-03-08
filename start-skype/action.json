@@ -64,7 +64,7 @@
           },
           {
             "fact": "data",
-            "path": ".data.room.genisys.currentMeeting.skypeUrl",
+            "path": ".data.room.genisys.currentMeetingDevice.genisys.skypeUrl",
             "operator": "exists",
             "value": true
           }
@@ -79,7 +79,7 @@
           "data": {
             "$set": {
               "desiredState.meeting": {
-                  "url": "{{data.data.room.genisys.currentMeeting.skypeUrl}}"
+                  "url": "{{data.data.room.genisys.currentMeetingDevice.genisys.skypeUrl}}"
               },
               "desiredState.videoEnabled": true,
               "desiredState.audioEnabled": true
