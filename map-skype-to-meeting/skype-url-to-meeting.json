@@ -11,6 +11,12 @@
           },
           {
             "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.room.genisys.currentMeeting.skypeUrl",
+            "value": false
+          },
+          {
+            "fact": "data",
             "path": ".state.meeting.url",
             "operator": "exists",
             "value": true
