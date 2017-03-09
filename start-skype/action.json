@@ -87,7 +87,9 @@
           }
         }
       }
-    },
+    }
+  },
+  "else": {
     "setNullSkypeUrlOnSkypeDevice": {
       "conditions": {
         "all": [
