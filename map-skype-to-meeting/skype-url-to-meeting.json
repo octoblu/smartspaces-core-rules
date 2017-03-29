@@ -17,9 +17,21 @@
           },
           {
             "fact": "data",
+            "operator": "notEqual",
+            "path": ".genisys.room.genisys.currentMeeting.skypeUrl",
+            "value": null
+          },
+          {
+            "fact": "data",
             "path": ".state.meeting.url",
             "operator": "exists",
             "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".state.meeting.url",
+            "operator": "notEqual",
+            "value": null
           }
         ]
       },
