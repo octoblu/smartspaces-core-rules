@@ -28,7 +28,21 @@
               "genisys.rooms.{{data.uuid}}": {
                 "uuid": "{{data.uuid}}",
                 "name": "{{data.name}}",
-                "genisys": "{{data.genisys}}"
+                "genisys": {
+                  "currentMeeting": {
+                    "ended": "{{data.genisys.currentMeeting.ended}}",
+                    "endTime": "{{data.genisys.currentMeeting.endTime}}",
+                    "meetingUrl": "{{data.genisys.currentMeeting.meetingUrl}}",
+                    "skypeUrl": "{{data.genisys.currentMeeting.skypeUrl}}",
+                    "startTime": "{{data.genisys.currentMeeting.startTime}}",
+                    "subject": "{{data.genisys.currentMeeting.subject}}"
+                  },
+                  "nextMeeting": {
+                    "endTime": "{{data.genisys.nextMeeting.endTime}}",
+                    "startTime": "{{data.genisys.nextMeeting.startTime}}",
+                    "subject": "{{data.genisys.nextMeeting.subject}}"
+                  }
+                }
               }
             }
           }
