@@ -29,6 +29,7 @@
                 "uuid": "{{data.uuid}}",
                 "name": "{{data.name}}",
                 "genisys": {
+                  "hidden": "{{data.genisys.hidden}}",
                   "currentMeeting": {
                     "ended": "{{data.genisys.currentMeeting.ended}}",
                     "endTime": "{{data.genisys.currentMeeting.endTime}}",
