@@ -25,7 +25,11 @@
           "message": {
             "devices": ["{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}"],
             "metadata": {
-              "jobType": "UpsertMeeting"
+              "jobType": "UpsertMeeting",
+              "emittingDevice": {
+                "uuid": "{{device.uuid}}",
+                "name": "{{device.name}}"
+              }
             },
             "data": {
               "subject": "Instant Meeting",
