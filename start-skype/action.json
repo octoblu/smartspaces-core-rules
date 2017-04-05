@@ -20,6 +20,12 @@
             "path": ".data.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
             "operator": "exists",
             "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".data.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
+            "operator": "notEqual",
+            "value": null
           }
         ]
       },
@@ -67,6 +73,12 @@
             "path": ".data.room.genisys.currentMeeting.skypeUrl",
             "operator": "exists",
             "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".data.room.genisys.currentMeeting.skypeUrl",
+            "operator": "notEqual",
+            "value": null
           }
         ]
       },
