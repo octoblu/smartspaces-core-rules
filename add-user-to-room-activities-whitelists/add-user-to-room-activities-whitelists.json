@@ -29,6 +29,11 @@
                 "uuid": "{{data.uuid}}",
                 "name": "{{data.name}}",
                 "email": "{{data.email}}"
+              },
+              "meshblu.whitelists.configure.sent": {
+                "uuid": "{{data.uuid}}",
+                "name": "{{data.name}}",
+                "email": "{{data.email}}"
               }
             }
           }
