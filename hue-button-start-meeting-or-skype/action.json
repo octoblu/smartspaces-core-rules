@@ -108,12 +108,6 @@
           },
           {
             "fact": "data",
-            "path": ".data.device.genisys.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
-            "operator": "exists",
-            "value": false
-          },
-          {
-            "fact": "data",
             "path": ".data.device.genisys.room.genisys.currentMeeting.skypeUrl",
             "operator": "exists",
             "value": true
