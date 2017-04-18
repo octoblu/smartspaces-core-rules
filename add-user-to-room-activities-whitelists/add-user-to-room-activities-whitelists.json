@@ -1,0 +1,39 @@
+{
+  "if": {
+    "updateRoomActivitiesWhenUserChanges": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.roomDevices.activities.uuid",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "operator": "equal",
+            "path": ".type",
+            "value": "octoblu:smartspaces:user"
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "uuid": "{{data.genisys.roomDevices.activities.uuid}}",
+          "data": {
+            "$addToSet": {
+              "meshblu.whitelists.discover.view": {
+                "uuid": "{{data.uuid}}",
+                "name": "{{data.name}}",
+                "email": "{{data.email}}"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
