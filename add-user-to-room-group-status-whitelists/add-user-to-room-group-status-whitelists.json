@@ -6,7 +6,7 @@
           {
             "fact": "data",
             "operator": "exists",
-            "path": ".genisys.roomGroupStatus.uuid",
+            "path": ".genisys.devices.roomGroupStatus.uuid",
             "value": true
           }
         ]
@@ -16,7 +16,7 @@
         "params": {
           "operation": "update",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "uuid": "{{data.genisys.roomGroupStatus.uuid}}",
+          "uuid": "{{data.genisys.devices.roomGroupStatus.uuid}}",
           "data": {
             "$addToSet": {
               "meshblu.whitelists.discover.view": {
