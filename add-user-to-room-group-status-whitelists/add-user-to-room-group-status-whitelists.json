@@ -1,0 +1,38 @@
+{
+  "if": {
+    "updateRoomGroupStatusWhenUserChanges": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.roomGroupStatus.uuid",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "uuid": "{{data.genisys.roomGroupStatus.uuid}}",
+          "data": {
+            "$addToSet": {
+              "meshblu.whitelists.discover.view": {
+                "uuid": "{{data.uuid}}",
+                "name": "{{data.name}}",
+                "email": "{{data.email}}"
+              },
+              "meshblu.whitelists.configure.sent": {
+                "uuid": "{{data.uuid}}",
+                "name": "{{data.name}}",
+                "email": "{{data.email}}"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
