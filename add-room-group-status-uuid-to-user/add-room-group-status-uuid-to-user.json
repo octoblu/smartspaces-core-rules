@@ -6,6 +6,12 @@
           {
             "fact": "data",
             "operator": "exists",
+            "path": ".uuid",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "operator": "exists",
             "path": ".genisys.roomGroupStatus.uuid",
             "value": false
           },
