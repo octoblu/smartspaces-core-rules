@@ -23,7 +23,8 @@
           }
         ]
       },
-      "event": {
+      "event": { 
+       "retry": true,
         "type": "meshblu",
         "params": {
           "operation": "update",
@@ -65,7 +66,8 @@
           }
         ]
       },
-      "event": {
+      "event": { 
+       "retry": true,
         "type": "meshblu",
         "params": {
           "operation": "update",
