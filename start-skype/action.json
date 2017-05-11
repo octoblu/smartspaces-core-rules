@@ -17,13 +17,13 @@
           },
           {
             "fact": "data",
-            "path": ".data.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
+            "path": ".data.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl",
             "operator": "exists",
             "value": true
           },
           {
             "fact": "data",
-            "path": ".data.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
+            "path": ".data.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl",
             "operator": "notEqual",
             "value": null
           }
@@ -39,7 +39,7 @@
           "data": {
             "$set": {
               "desiredState.meeting": {
-                  "url": "{{data.data.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url}}"
+                  "url": "{{data.data.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl}}"
               },
               "desiredState.videoEnabled": true,
               "desiredState.audioEnabled": true
@@ -65,7 +65,7 @@
           },
           {
             "fact": "data",
-            "path": ".data.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
+            "path": ".data.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl",
             "operator": "exists",
             "value": false
           },
@@ -119,7 +119,7 @@
           },
           {
             "fact": "data",
-            "path": ".data.room.genisys.currentMeeting.metadata.exchange.urls.com.citrix.meet.0.url",
+            "path": ".data.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl",
             "operator": "exists",
             "value": false
           },
