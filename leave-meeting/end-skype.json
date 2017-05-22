@@ -1,0 +1,38 @@
+{
+  "if": {
+    "leaveMeetingInRoom": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".data.room.genisys.devices.skype.uuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".metadata.jobType",
+            "operator": "equal",
+            "value": "leave-meeting"
+          }
+        ]
+      },
+      "event": {
+       "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "uuid": "{{data.data.room.genisys.devices.skype.uuid}}",
+          "data": {
+            "$set": {
+              "desiredState" : {
+                "meeting": null
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

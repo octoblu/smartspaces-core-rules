@@ -1,13 +1,13 @@
 {
   "if": {
-    "endMeetingInRoom": {
+    "leaveMeetingInRoom": {
       "conditions": {
         "all": [
           {
             "fact": "data",
             "path": ".metadata.jobType",
             "operator": "equal",
-            "value": "end-meeting"
+            "value": "leave-meeting"
           }
         ]
       },
@@ -20,10 +20,11 @@
           "message": {
             "devices": ["{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}"],
             "metadata": {
-              "jobType": "EndMeeting"
+              "jobType": "LeaveMeeting"
             },
             "data": {
-              "meetingId": "{{data.data.meetingId}}"
+              "meetingId": "{{data.data.meetingId}}",
+              "roomId": "{{data.data.room.uuid}}"
             }
           }
         }
