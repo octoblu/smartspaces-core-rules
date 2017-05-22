@@ -11,7 +11,7 @@
           }
         ]
       },
-      "event": { 
+      "event": {
        "retry": true,
         "type": "meshblu",
         "params": {
@@ -23,7 +23,8 @@
               "jobType": "EndMeeting"
             },
             "data": {
-              "meetingId": "{{data.data.meetingId}}"
+              "meetingId": "{{data.data.meetingId}}",
+              "roomId": "{{data.data.room.uuid}}"
             }
           }
         }
