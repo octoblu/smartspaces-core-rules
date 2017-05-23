@@ -17,7 +17,7 @@
           }
         ]
       },
-      "event": { 
+      "event": {
        "retry": true,
         "type": "meshblu",
         "params": {
@@ -46,6 +46,44 @@
                   }
                 }
               }
+            }
+          }
+        }
+      }
+    },
+    "unsetIfRoomIsDeleted": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "device",
+            "operator": "exists",
+            "path": ".genisys.customerDevices.roomGroupStatus.uuid",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "operator": "equal",
+            "path": ".type",
+            "value": "octoblu:smartspaces:room"
+          },
+          {
+            "fact": "data",
+            "operator": "equal",
+            "path": ".genisys.deleted",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+       "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "uuid": "{{device.genisys.customerDevices.roomGroupStatus.uuid}}",
+          "data": {
+            "$unset": {
+              "genisys.rooms.{{data.uuid}}": true
             }
           }
         }
