@@ -33,16 +33,16 @@
                   "hidden": "{{data.genisys.hidden}}",
                   "currentMeeting": {
                     "ended": "{{data.genisys.currentMeeting.ended}}",
-                    "endTime": "{{data.genisys.currentMeeting.endTime}}",
+                    "endTime": "{{data.genisys.currentMeeting.rooms.{{data.uuid}}.endTime}}",
                     "meetingUrl": "{{data.genisys.currentMeeting.meetingUrl}}",
                     "skypeUrl": "{{data.genisys.currentMeeting.skypeUrl}}",
-                    "startTime": "{{data.genisys.currentMeeting.startTime}}",
-                    "subject": "{{data.genisys.currentMeeting.subject}}"
+                    "startTime": "{{data.genisys.currentMeeting.rooms.{{data.uuid}}.startTime}}",
+                    "subject": "{{data.genisys.currentMeeting.rooms.{{data.uuid}}.subject}}"
                   },
                   "nextMeeting": {
-                    "endTime": "{{data.genisys.nextMeeting.endTime}}",
-                    "startTime": "{{data.genisys.nextMeeting.startTime}}",
-                    "subject": "{{data.genisys.nextMeeting.subject}}"
+                    "endTime": "{{data.genisys.nextMeeting.rooms.{{data.uuid}}.endTime}}",
+                    "startTime": "{{data.genisys.nextMeeting.rooms.{{data.uuid}}.startTime}}",
+                    "subject": "{{data.genisys.nextMeeting.rooms.{{data.uuid}}.subject}}"
                   }
                 }
               }
