@@ -31,7 +31,8 @@
             "data": {
               "subject": "Instant Meeting",
               "room": {
-                "roomId": "{{data.data.roomId}}"
+                "roomId": "{{data.data.roomId}}",
+                "subject": "Instant Meeting"
               },
               "attendees": []
             }
