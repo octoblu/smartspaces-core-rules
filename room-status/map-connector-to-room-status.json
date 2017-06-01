@@ -1,0 +1,29 @@
+{
+  "if": {
+    "errors": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".data.errors",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+       "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{device.uuid}}",
+          "data": {
+            "$set": {
+              "{{data.uuid}}.errors": "{{data.errors}}"
+            }
+          }
+        }
+      }
+    }
+  }
+}
