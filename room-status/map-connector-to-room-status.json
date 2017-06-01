@@ -19,7 +19,7 @@
           "uuid": "{{device.uuid}}",
           "data": {
             "$set": {
-              "components.{{data.owner}}.errors": "{{data.errors}}",
+              "components.{{data.owner}}.status": "{{data.status}}",
               "components.{{data.owner}}.statusDevice": "{{data.uuid}}"
             }
           }
