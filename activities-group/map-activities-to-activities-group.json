@@ -1,0 +1,35 @@
+{
+  "if": {
+    "errors": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".uuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".genisys.activities",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+       "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{device.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.rooms.{{data.uuid}}.activities": "{{data.genisys.activities}}"
+            }
+          }
+        }
+      }
+    }
+  }
+}
