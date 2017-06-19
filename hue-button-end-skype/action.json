@@ -5,6 +5,12 @@
         "all": [
           {
             "fact": "data",
+            "path": ".data.action",
+            "operator": "equal",
+            "value": "click"
+          },
+          {
+            "fact": "data",
             "path": ".data.device.genisys.room.genisys.devices.skype.uuid",
             "operator": "exists",
             "value": true
@@ -17,7 +23,7 @@
           }
         ]
       },
-      "event": { 
+      "event": {
        "retry": true,
         "type": "meshblu",
         "params": {
