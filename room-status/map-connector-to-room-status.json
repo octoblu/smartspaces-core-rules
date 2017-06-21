@@ -5,7 +5,7 @@
         "all": [
           {
             "fact": "data",
-            "path": ".errors",
+            "path": ".status.errors",
             "operator": "exists",
             "value": true
           }
