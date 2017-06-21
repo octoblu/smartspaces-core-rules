@@ -1,0 +1,42 @@
+{
+  "if": {
+    "sendEndSkype": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".data.device.uuid",
+            "operator": "equal",
+            "value": "e15e7e34-4bf8-4679-9af4-230852b028be"
+          },
+          {
+            "fact": "data",
+            "path": ".data.action",
+            "operator": "equal",
+            "value": "click"
+          },
+          {
+            "fact": "data",
+            "path": ".data.device.genisys.room.genisys.inSkype",
+            "operator": "equal",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "message",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "message": {
+            "devices": [ "ba3bd373-2e11-4740-8715-f9f172d86c9e" ],
+            "data": {
+              "action": "endSkype"
+            }
+          }
+        }
+      }
+    }
+  }
+}
