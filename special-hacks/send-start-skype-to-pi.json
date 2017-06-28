@@ -20,6 +20,12 @@
             "path": ".data.device.genisys.room.genisys.inSkype",
             "operator": "equal",
             "value": false
+          },
+          {
+            "fact": "data",
+            "path": ".data.device.genisys.room.genisys.currentMeeting",
+            "operator": "exists",
+            "value": true
           }
         ]
       },
