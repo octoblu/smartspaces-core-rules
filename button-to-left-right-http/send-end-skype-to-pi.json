@@ -1,13 +1,13 @@
 {
   "if": {
-    "sendStartSkype": {
+    "sendEndSkype": {
       "conditions": {
         "all": [
           {
             "fact": "data",
             "path": ".data.device.uuid",
-            "operator": "equal",
-            "value": "e15e7e34-4bf8-4679-9af4-230852b028be"
+            "operator": "exists",
+            "value": true
           },
           {
             "fact": "data",
@@ -19,12 +19,6 @@
             "fact": "data",
             "path": ".data.device.genisys.room.genisys.inSkype",
             "operator": "equal",
-            "value": false
-          },
-          {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.currentMeeting",
-            "operator": "exists",
             "value": true
           }
         ]
@@ -36,9 +30,9 @@
           "operation": "message",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "message": {
-            "devices": [ "ba3bd373-2e11-4740-8715-f9f172d86c9e" ],
+            "devices": [ "{{device.uuid}}" ],
             "data": {
-              "action": "startSkype"
+              "action": "endSkype"
             }
           }
         }
