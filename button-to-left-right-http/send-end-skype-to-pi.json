@@ -6,8 +6,8 @@
           {
             "fact": "data",
             "path": ".data.device.uuid",
-            "operator": "equal",
-            "value": "e15e7e34-4bf8-4679-9af4-230852b028be"
+            "operator": "exists",
+            "value": true
           },
           {
             "fact": "data",
