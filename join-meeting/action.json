@@ -35,15 +35,11 @@
         "params": {
           "operation": "update",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "message": {
-            "devices": [
-              "{{data.data.meetingId}}"
-            ],
-            "data": {
-              "$addToSet": {
-                "genisys.attendees": { "name": "{{data.data.user.name}}", "email": "{{data.data.user.email}}"},
-                "genisys.newAttendees": { "name": "{{data.data.user.name}}", "email": "{{data.data.user.email}}"}
-              }
+          "uuid": "{{data.data.meetingId}}",
+          "data": {
+            "$addToSet": {
+              "genisys.attendees": { "name": "{{data.data.user.name}}", "email": "{{data.data.user.email}}"},
+              "genisys.newAttendees": { "name": "{{data.data.user.name}}", "email": "{{data.data.user.email}}"}
             }
           }
         }
