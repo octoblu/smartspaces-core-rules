@@ -30,7 +30,7 @@
           "operation": "message",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "message": {
-            "devices": [ "{{device.uuid}}" ],
+            "devices": [ "{{data.data.device.uuid}}" ],
             "data": {
               "action": "endSkype"
             }
