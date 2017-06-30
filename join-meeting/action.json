@@ -1,0 +1,53 @@
+{
+  "if": {
+    "joinMeeting": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".metadata.jobType",
+            "operator": "equal",
+            "value": "join-meeting"
+          },
+          {
+            "fact": "data",
+            "path": ".data.user.name",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".data.user.email",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".data.meetingId",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+       "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "message": {
+            "devices": [
+              "{{data.data.meetingId}}"
+            ],
+            "data": {
+              "$addToSet": {
+                "genisys.attendees": { "name": "{{data.data.user.name}}", "email": "{{data.data.user.email}}"},
+                "genisys.newAttendees": { "name": "{{data.data.user.name}}", "email": "{{data.data.user.email}}"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
