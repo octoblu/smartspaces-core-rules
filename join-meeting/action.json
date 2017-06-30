@@ -11,13 +11,7 @@
           },
           {
             "fact": "data",
-            "path": ".data.user.name",
-            "operator": "exists",
-            "value": true
-          },
-          {
-            "fact": "data",
-            "path": ".data.user.email",
+            "path": ".data.user",
             "operator": "exists",
             "value": true
           },
