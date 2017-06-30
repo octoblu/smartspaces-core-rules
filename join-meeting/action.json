@@ -28,7 +28,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "as": "{{data.data.meetingId}}",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "uuid": "{{data.data.meetingId}}",
           "data": {
             "$addToSet": {
