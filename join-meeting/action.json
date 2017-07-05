@@ -10,8 +10,8 @@
             "value": "join-meeting"
           },
           {
-            "fact": "device",
-            "path": ".user",
+            "fact": "data",
+            "path": ".data.user",
             "operator": "exists",
             "value": true
           },
@@ -32,8 +32,8 @@
           "uuid": "{{data.data.meetingId}}",
           "data": {
             "$addToSet": {
-              "genisys.attendees": { "name": "{{device.user.name}}", "email": "{{device.user.email}}"},
-              "genisys.newAttendees": { "name": "{{device.user.name}}", "email": "{{device.user.email}}"}
+              "genisys.attendees": { "name": "{{data.data.user.name}}", "email": "{{data.data.user.email}}"},
+              "genisys.newAttendees": { "name": "{{data.data.user.name}}", "email": "{{data.data.user.email}}"}
             }
           }
         }
