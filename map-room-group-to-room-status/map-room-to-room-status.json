@@ -49,88 +49,13 @@
                   },
                   "nextMeeting": {
                     "meetingId": "{{data.genisys.nextMeeting.meetingId}}",
+                    "attendees": "{{data.genisys.nextMeeting.attendees}}",
                     "endTime": "{{data.genisys.nextMeeting.rooms.{{data.uuid}}.endTime}}",
                     "startTime": "{{data.genisys.nextMeeting.rooms.{{data.uuid}}.startTime}}",
                     "subject": "{{data.genisys.nextMeeting.rooms.{{data.uuid}}.subject}}"
                   }
                 }
               }
-            }
-          }
-        }
-      }
-    },
-    "unsetMeetingWhenEnded": {
-      "conditions": {
-        "all": [
-          {
-            "fact": "device",
-            "operator": "exists",
-            "path": ".genisys.customerDevices.roomGroupStatus.uuid",
-            "value": true
-          },
-          {
-            "fact": "data",
-            "operator": "exists",
-            "path": ".genisys.currentMeeting",
-            "value": false
-          },
-          {
-            "fact": "data",
-            "operator": "equal",
-            "path": ".type",
-            "value": "octoblu:smartspaces:room"
-          }
-        ]
-      },
-      "event": {
-       "retry": true,
-        "type": "meshblu",
-        "params": {
-          "operation": "update",
-          "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "uuid": "{{device.genisys.customerDevices.roomGroupStatus.uuid}}",
-          "data": {
-            "$unset": {
-              "genisys.rooms.{{data.uuid}}.genisys.currentMeeting": true
-            }
-          }
-        }
-      }
-    },
-    "unsetNextMeetingWhenEnded": {
-      "conditions": {
-        "all": [
-          {
-            "fact": "device",
-            "operator": "exists",
-            "path": ".genisys.customerDevices.roomGroupStatus.uuid",
-            "value": true
-          },
-          {
-            "fact": "data",
-            "operator": "exists",
-            "path": ".genisys.nextMeeting",
-            "value": false
-          },
-          {
-            "fact": "data",
-            "operator": "equal",
-            "path": ".type",
-            "value": "octoblu:smartspaces:room"
-          }
-        ]
-      },
-      "event": {
-       "retry": true,
-        "type": "meshblu",
-        "params": {
-          "operation": "update",
-          "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "uuid": "{{device.genisys.customerDevices.roomGroupStatus.uuid}}",
-          "data": {
-            "$unset": {
-              "genisys.rooms.{{data.uuid}}.genisys.nextMeeting": true
             }
           }
         }
