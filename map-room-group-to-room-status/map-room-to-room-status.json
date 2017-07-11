@@ -10,6 +10,12 @@
             "value": true
           },
           {
+            "fact": "device",
+            "operator": "exists",
+            "path": ".genisys.currentMeeting",
+            "value": true
+          },
+          {
             "fact": "data",
             "operator": "equal",
             "path": ".type",
@@ -32,6 +38,8 @@
                 "genisys": {
                   "hidden": "{{data.genisys.hidden}}",
                   "currentMeeting": {
+                    "attendees": "{{data.genisys.currentMeeting.attendees}}",
+                    "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
                     "ended": "{{data.genisys.currentMeeting.ended}}",
                     "endTime": "{{data.genisys.currentMeeting.rooms.{{data.uuid}}.endTime}}",
                     "meetingUrl": "{{data.genisys.currentMeeting.meetingUrl}}",
@@ -40,12 +48,89 @@
                     "subject": "{{data.genisys.currentMeeting.rooms.{{data.uuid}}.subject}}"
                   },
                   "nextMeeting": {
+                    "meetingId": "{{data.genisys.nextMeeting.meetingId}}",
                     "endTime": "{{data.genisys.nextMeeting.rooms.{{data.uuid}}.endTime}}",
                     "startTime": "{{data.genisys.nextMeeting.rooms.{{data.uuid}}.startTime}}",
                     "subject": "{{data.genisys.nextMeeting.rooms.{{data.uuid}}.subject}}"
                   }
                 }
               }
+            }
+          }
+        }
+      }
+    },
+    "unsetMeetingWhenEnded": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "device",
+            "operator": "exists",
+            "path": ".genisys.customerDevices.roomGroupStatus.uuid",
+            "value": true
+          },
+          {
+            "fact": "device",
+            "operator": "exists",
+            "path": ".genisys.currentMeeting",
+            "value": false
+          },
+          {
+            "fact": "data",
+            "operator": "equal",
+            "path": ".type",
+            "value": "octoblu:smartspaces:room"
+          }
+        ]
+      },
+      "event": {
+       "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "uuid": "{{device.genisys.customerDevices.roomGroupStatus.uuid}}",
+          "data": {
+            "$unset": {
+              "genisys.rooms.{{data.uuid}}.genisys.currentMeeting": true
+            }
+          }
+        }
+      }
+    },
+    "unsetNextMeetingWhenEnded": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "device",
+            "operator": "exists",
+            "path": ".genisys.customerDevices.roomGroupStatus.uuid",
+            "value": true
+          },
+          {
+            "fact": "device",
+            "operator": "exists",
+            "path": ".genisys.nextMeeting",
+            "value": false
+          },
+          {
+            "fact": "data",
+            "operator": "equal",
+            "path": ".type",
+            "value": "octoblu:smartspaces:room"
+          }
+        ]
+      },
+      "event": {
+       "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "uuid": "{{device.genisys.customerDevices.roomGroupStatus.uuid}}",
+          "data": {
+            "$unset": {
+              "genisys.rooms.{{data.uuid}}.genisys.nextMeeting": true
             }
           }
         }
