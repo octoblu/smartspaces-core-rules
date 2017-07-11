@@ -11,12 +11,6 @@
           },
           {
             "fact": "data",
-            "operator": "exists",
-            "path": ".genisys.currentMeeting",
-            "value": true
-          },
-          {
-            "fact": "data",
             "operator": "equal",
             "path": ".type",
             "value": "octoblu:smartspaces:room"
