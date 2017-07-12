@@ -16,8 +16,8 @@
             "value": "click"
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.inSkype",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.inSkype",
             "operator": "equal",
             "value": true
           }

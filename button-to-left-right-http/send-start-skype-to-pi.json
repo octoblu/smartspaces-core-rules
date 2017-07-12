@@ -16,14 +16,14 @@
             "value": "click"
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.inSkype",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.inSkype",
             "operator": "equal",
             "value": false
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.currentMeeting",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.currentMeeting",
             "operator": "exists",
             "value": true
           }
@@ -36,7 +36,7 @@
           "operation": "message",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "message": {
-            "devices": [ "{{data.data.device.uuid}}" ],
+            "devices": [ "{{fromDevice.uuid}}" ],
             "data": {
               "action": "startSkype"
             }

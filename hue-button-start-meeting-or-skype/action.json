@@ -10,20 +10,20 @@
             "value": "click"
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.currentMeeting",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.currentMeeting",
             "operator": "exists",
             "value": false
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.inSkype",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.inSkype",
             "operator": "notEqual",
             "value": true
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.roomId",
+            "fact": "fromDevice",
+            "path": ".genisys.roomId",
             "operator": "exists",
             "value": true
           }
@@ -47,7 +47,7 @@
             "data": {
               "subject": "Instant Meeting",
               "room": {
-                "roomId": "{{data.data.device.genisys.roomId}}"
+                "roomId": "{{fromDevice.genisys.roomId}}"
               },
               "attendees": []
             }
@@ -67,26 +67,26 @@
             "value": "click"
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.devices.skype.uuid",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.devices.skype.uuid",
             "operator": "exists",
             "value": true
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.inSkype",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.inSkype",
             "operator": "equal",
             "value": false
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.currentMeeting.skypeUrl",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.currentMeeting.skypeUrl",
             "operator": "exists",
             "value": false
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl",
             "operator": "exists",
             "value": true
           }
@@ -98,11 +98,11 @@
         "params": {
           "operation": "update",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "uuid": "{{data.data.device.genisys.room.genisys.devices.skype.uuid}}",
+          "uuid": "{{fromDevice.genisys.room.genisys.devices.skype.uuid}}",
           "data": {
             "$set": {
               "desiredState.meeting": {
-                  "url": "{{data.data.device.genisys.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl}}"
+                  "url": "{{fromDevice.genisys.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl}}"
               },
               "desiredState.videoEnabled": true,
               "desiredState.audioEnabled": true
@@ -121,20 +121,20 @@
             "value": "click"
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.devices.skype.uuid",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.devices.skype.uuid",
             "operator": "exists",
             "value": true
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.currentMeeting.skypeUrl",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.currentMeeting.skypeUrl",
             "operator": "exists",
             "value": true
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.currentMeeting.skypeUrl",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.currentMeeting.skypeUrl",
             "operator": "notEqual",
             "value": null
           }
@@ -146,11 +146,11 @@
         "params": {
           "operation": "update",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "uuid": "{{data.data.device.genisys.room.genisys.devices.skype.uuid}}",
+          "uuid": "{{fromDevice.genisys.room.genisys.devices.skype.uuid}}",
           "data": {
             "$set": {
               "desiredState.meeting": {
-                  "url": "{{data.data.device.genisys.room.genisys.currentMeeting.skypeUrl}}"
+                  "url": "{{fromDevice.genisys.room.genisys.currentMeeting.skypeUrl}}"
               },
               "desiredState.videoEnabled": true,
               "desiredState.audioEnabled": true
@@ -169,26 +169,26 @@
             "value": "click"
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.devices.skype.uuid",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.devices.skype.uuid",
             "operator": "exists",
             "value": true
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.inSkype",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.inSkype",
             "operator": "equal",
             "value": false
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl",
             "operator": "exists",
             "value": false
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.currentMeeting.skypeUrl",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.currentMeeting.skypeUrl",
             "operator": "exists",
             "value": false
           }
@@ -200,7 +200,7 @@
         "params": {
           "operation": "update",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "uuid": "{{data.data.device.genisys.room.genisys.devices.skype.uuid}}",
+          "uuid": "{{fromDevice.genisys.room.genisys.devices.skype.uuid}}",
           "data": {
             "$set": {
               "desiredState.meeting": {

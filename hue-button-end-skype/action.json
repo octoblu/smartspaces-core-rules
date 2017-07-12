@@ -10,14 +10,14 @@
             "value": "click"
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.devices.skype.uuid",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.devices.skype.uuid",
             "operator": "exists",
             "value": true
           },
           {
-            "fact": "data",
-            "path": ".data.device.genisys.room.genisys.inSkype",
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.inSkype",
             "operator": "equal",
             "value": true
           }
@@ -29,7 +29,7 @@
         "params": {
           "operation": "update",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "uuid": "{{data.data.device.genisys.room.genisys.devices.skype.uuid}}",
+          "uuid": "{{fromDevice.genisys.room.genisys.devices.skype.uuid}}",
           "data": {
             "$set": {
               "desiredState.meeting": null
