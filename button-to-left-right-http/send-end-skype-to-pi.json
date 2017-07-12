@@ -4,8 +4,8 @@
       "conditions": {
         "all": [
           {
-            "fact": "data",
-            "path": ".data.device.uuid",
+            "fact": "fromDevice",
+            "path": ".uuid",
             "operator": "exists",
             "value": true
           },
@@ -30,7 +30,7 @@
           "operation": "message",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "message": {
-            "devices": [ "{{data.data.device.uuid}}" ],
+            "devices": [ "{{fromDevice.uuid}}" ],
             "data": {
               "action": "endSkype"
             }

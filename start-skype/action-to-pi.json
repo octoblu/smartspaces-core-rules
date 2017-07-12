@@ -4,28 +4,28 @@
       "conditions": {
         "all": [
           {
-            "fact": "fromDevice",
-            "path": ".uuid",
+            "fact": "data",
+            "path": ".data.room.genisys.devices.skype.uuid",
             "operator": "exists",
             "value": true
           },
           {
             "fact": "data",
-            "path": ".data.action",
+            "path": ".metadata.jobType",
             "operator": "equal",
-            "value": "click"
+            "value": "start-skype"
           },
           {
-            "fact": "fromDevice",
-            "path": ".genisys.room.genisys.inSkype",
-            "operator": "equal",
-            "value": false
-          },
-          {
-            "fact": "fromDevice",
-            "path": ".genisys.room.genisys.currentMeeting",
+            "fact": "data",
+            "path": ".data.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl",
             "operator": "exists",
             "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".data.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl",
+            "operator": "notEqual",
+            "value": null
           }
         ]
       },
@@ -36,7 +36,7 @@
           "operation": "message",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "message": {
-            "devices": [ "{{fromDevice.uuid}}" ],
+            "devices": [ "{{device.genisys.devices.powermate.uuid}}" ],
             "data": {
               "action": "startSkype"
             }
