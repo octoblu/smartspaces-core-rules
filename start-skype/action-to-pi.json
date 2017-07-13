@@ -24,7 +24,7 @@
           "operation": "message",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "message": {
-            "devices": [ "{{data.data.room.genisys.devices.powermate.uuid}}", "ae25e419-a1ac-4105-b025-120ebe2b8fb0" ],
+            "devices": [ "{{data.data.room.genisys.devices.powermate.uuid}}"],
             "data": {
               "action": "startSkype"
             }
