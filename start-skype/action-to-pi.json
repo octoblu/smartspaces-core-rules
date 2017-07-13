@@ -11,15 +11,9 @@
           },
           {
             "fact": "data",
-            "path": ".data.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl",
-            "operator": "exists",
+            "path": ".data.room.genisys.inSkype",
+            "operator": "equal",
             "value": true
-          },
-          {
-            "fact": "data",
-            "path": ".data.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl",
-            "operator": "notEqual",
-            "value": null
           }
         ]
       },
