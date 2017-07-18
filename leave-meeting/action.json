@@ -37,7 +37,7 @@
             "fact": "data",
             "path": ".data.action",
             "operator": "equal",
-            "value": "longClick"
+            "value": "click"
           },
           {
             "fact": "fromDevice",
@@ -62,10 +62,6 @@
           "message": {
             "devices": ["{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}"],
             "metadata": {
-              "emittingDevice": {
-                "uuid": "{{device.uuid}}",
-                "name": "{{device.name}}"
-              },
               "jobType": "LeaveMeeting"
             },
             "data": {
