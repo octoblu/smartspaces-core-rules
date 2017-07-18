@@ -26,6 +26,12 @@
             "path": ".genisys.roomId",
             "operator": "exists",
             "value": true
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.nextMeeting",
+            "operator": "exists",
+            "value": false
           }
         ]
       },
@@ -54,9 +60,133 @@
           }
         }
       }
+    },
+    "startMeetingEarly": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.nextMeeting",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".data.action",
+            "operator": "equal",
+            "value": "click"
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.nextMeeting.startTime",
+            "operator": "minutesUntil",
+            "value": 5
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.currentMeeting",
+            "operator": "exists",
+            "value": false
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.inSkype",
+            "operator": "notEqual",
+            "value": true
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.roomId",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+       "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "message",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "message": {
+            "devices": ["{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}"],
+            "metadata": {
+              "jobType": "UpsertMeeting"
+            },
+            "data": {
+              "room": {
+                "roomId": "{{fromDevice.genisys.roomId}}"
+              },
+              "startTime": "{{fromDevice.genisys.room.meshblu.updatedAt}}",
+              "endTime": "{{fromDevice.genisys.room.genisys.nextMeeting.startTime}}"
+            }
+          }
+        }
+      }
     }
   },
   "else": {
+    "startMeetingBeforeNext": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".data.action",
+            "operator": "equal",
+            "value": "click"
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.currentMeeting",
+            "operator": "exists",
+            "value": false
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.inSkype",
+            "operator": "notEqual",
+            "value": true
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.roomId",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.nextMeeting",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+       "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "message",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "message": {
+            "devices": ["{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}"],
+            "metadata": {
+              "jobType": "UpsertMeeting",
+              "emittingDevice": {
+                "uuid": "{{device.uuid}}",
+                "name": "{{device.name}}"
+              }
+            },
+            "data": {
+              "subject": "Instant Meeting",
+              "room": {
+                "roomId": "{{fromDevice.genisys.roomId}}"
+              },
+              "attendees": []
+            }
+          }
+        }
+      }
+    },
     "setSkypeUrlOnSkypeDevice": {
       "conditions": {
         "all": [
