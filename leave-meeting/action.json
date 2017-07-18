@@ -12,7 +12,7 @@
         ]
       },
       "event": {
-       "retry": true,
+        "retry": true,
         "type": "meshblu",
         "params": {
           "operation": "message",
@@ -25,6 +25,48 @@
             "data": {
               "meetingId": "{{data.data.meetingId}}",
               "roomId": "{{data.data.room.uuid}}"
+            }
+          }
+        }
+      }
+    },
+    "buttonLongClick": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".data.action",
+            "operator": "equal",
+            "value": "longClick"
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.currentMeeting",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.roomId",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "message",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "message": {
+            "devices": ["{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}"],
+            "metadata": {
+              "jobType": "LeaveMeeting"
+            },
+            "data": {
+              "meetingId": "{{fromDevice.genisys.room.genisys.currentMeeting.meetingId}}",
+              "roomId": "{{fromDevice.genisys.roomId}}"
             }
           }
         }
