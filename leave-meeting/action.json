@@ -37,7 +37,7 @@
             "fact": "data",
             "path": ".data.action",
             "operator": "equal",
-            "value": "click"
+            "value": "longClick"
           },
           {
             "fact": "fromDevice",

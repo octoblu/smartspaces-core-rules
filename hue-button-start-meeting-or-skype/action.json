@@ -7,7 +7,7 @@
             "fact": "data",
             "path": ".data.action",
             "operator": "equal",
-            "value": "longClick"
+            "value": "click"
           },
           {
             "fact": "fromDevice",
@@ -64,7 +64,7 @@
             "fact": "data",
             "path": ".data.action",
             "operator": "equal",
-            "value": "longClick"
+            "value": "click"
           },
           {
             "fact": "fromDevice",
@@ -118,7 +118,7 @@
             "fact": "data",
             "path": ".data.action",
             "operator": "equal",
-            "value": "longClick"
+            "value": "click"
           },
           {
             "fact": "fromDevice",
@@ -166,7 +166,7 @@
             "fact": "data",
             "path": ".data.action",
             "operator": "equal",
-            "value": "longClick"
+            "value": "click"
           },
           {
             "fact": "fromDevice",
