@@ -119,7 +119,7 @@
                 "roomId": "{{fromDevice.genisys.roomId}}"
               },
               "startTime": "{{fromDevice.genisys.room.meshblu.updatedAt}}",
-              "endTime": "{{fromDevice.genisys.room.genisys.nextMeeting.startTime}}"
+              "endTime": "{{fromDevice.genisys.room.genisys.nextMeeting.endTime}}"
             }
           }
         }
