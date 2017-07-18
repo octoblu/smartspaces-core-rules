@@ -65,7 +65,7 @@
               "jobType": "LeaveMeeting"
             },
             "data": {
-              "meetingId": "{{fromDevice.genisys.currentMeeting.meetingId}}",
+              "meetingId": "{{fromDevice.genisys.room.genisys.currentMeeting.meetingId}}",
               "roomId": "{{fromDevice.genisys.roomId}}"
             }
           }
