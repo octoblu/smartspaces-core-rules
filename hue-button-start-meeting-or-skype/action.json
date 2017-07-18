@@ -114,6 +114,7 @@
               "jobType": "UpsertMeeting"
             },
             "data": {
+              "searchableId": "{{fromDevice.genisys.room.genisys.nextMeeting.searchableId}}",
               "room": {
                 "roomId": "{{fromDevice.genisys.roomId}}"
               },
