@@ -65,7 +65,7 @@
               "jobType": "LeaveMeeting"
             },
             "data": {
-              "meetingId": "{{data.data.room.currentMeeting.meetingId}}",
+              "meetingId": "{{data.data.room.meetingId}}",
               "roomId": "{{data.data.room.uuid}}"
             }
           }
