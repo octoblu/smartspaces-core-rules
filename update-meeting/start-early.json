@@ -34,8 +34,8 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{device.uuid}",
-          "as": "{{device.uuid}}",
+          "uuid": "{{data.uuid}",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "data": {
             "$set": {
               "genisys.nextMeeting.startEarly": true
