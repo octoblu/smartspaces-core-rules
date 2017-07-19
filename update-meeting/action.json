@@ -1,0 +1,48 @@
+{
+  "if": {
+    "whenMeetingCanStartEarly": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.currentMeeting",
+            "value": false
+          },
+          {
+            "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.nextMeeting",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "operator": "minutesUntil",
+            "path": ".genisys.nextMeeting.startTime",
+            "value": 5
+          },
+          {
+            "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.nextMeeting.startEarly",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+       "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{device.uuid}",
+          "as": "{{device.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.nextMeeting.startEarly": true
+            }
+          }
+        }
+      }
+    }
+  }
+}
