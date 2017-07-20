@@ -35,7 +35,7 @@
         "params": {
           "operation": "update",
           "uuid": "{{data.uuid}}",
-          "as": "{{data.uuid}}",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "data": {
             "$set": {
               "genisys.nextMeeting.startEarly": true
