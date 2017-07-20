@@ -34,7 +34,7 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "uuid": "{{data.uuid}",
+          "uuid": "{{data.uuid}}",
           "as": "{{data.uuid}}",
           "data": {
             "$set": {
