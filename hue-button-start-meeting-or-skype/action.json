@@ -322,6 +322,12 @@
             "path": ".genisys.room.genisys.currentMeeting.skypeUrl",
             "operator": "exists",
             "value": false
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.currentMeeting",
+            "operator": "exists",
+            "value": true
           }
         ]
       },
