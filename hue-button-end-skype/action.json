@@ -37,6 +37,44 @@
           }
         }
       }
+    },
+    "buttonLongClickEndSkype": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".data.action",
+            "operator": "equal",
+            "value": "longClick"
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.currentMeeting",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.roomId",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+       "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "uuid": "{{fromDevice.roomDevices.skype.uuid}}",
+          "data": {
+            "$set": {
+              "desiredState.meeting" : null
+            }
+          }
+        }
+      }
     }
   }
 }
