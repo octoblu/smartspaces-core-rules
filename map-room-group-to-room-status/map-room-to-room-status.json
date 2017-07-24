@@ -11,6 +11,12 @@
           },
           {
             "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.currentMeeting",
+            "value": true
+          },
+          {
+            "fact": "data",
             "operator": "equal",
             "path": ".type",
             "value": "octoblu:smartspaces:room"
@@ -41,6 +47,58 @@
                     "startTime": "{{data.genisys.currentMeeting.rooms.{{data.uuid}}.startTime}}",
                     "subject": "{{data.genisys.currentMeeting.rooms.{{data.uuid}}.subject}}"
                   },
+                  "nextMeeting": {
+                    "meetingId": "{{data.genisys.nextMeeting.meetingId}}",
+                    "attendees": "{{data.genisys.nextMeeting.attendees}}",
+                    "endTime": "{{data.genisys.nextMeeting.rooms.{{data.uuid}}.endTime}}",
+                    "startTime": "{{data.genisys.nextMeeting.rooms.{{data.uuid}}.startTime}}",
+                    "subject": "{{data.genisys.nextMeeting.rooms.{{data.uuid}}.subject}}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "updateRoomStatusWhenNoCurrentMeeting": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "device",
+            "operator": "exists",
+            "path": ".genisys.customerDevices.roomGroupStatus.uuid",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.currentMeeting",
+            "value": false
+          },
+          {
+            "fact": "data",
+            "operator": "equal",
+            "path": ".type",
+            "value": "octoblu:smartspaces:room"
+          }
+        ]
+      },
+      "event": {
+       "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "uuid": "{{device.genisys.customerDevices.roomGroupStatus.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.rooms.{{data.uuid}}": {
+                "uuid": "{{data.uuid}}",
+                "name": "{{data.name}}",
+                "genisys": {
+                  "hidden": "{{data.genisys.hidden}}",
+                  "currentMeeting": {},
                   "nextMeeting": {
                     "meetingId": "{{data.genisys.nextMeeting.meetingId}}",
                     "attendees": "{{data.genisys.nextMeeting.attendees}}",
