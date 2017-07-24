@@ -67,7 +67,7 @@
         "params": {
           "operation": "update",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "uuid": "{{fromDevice.roomDevices.skype.uuid}}",
+          "uuid": "{{fromDevice.genisys.room.genisys.devices.skype.uuid}}",
           "data": {
             "$set": {
               "desiredState.meeting" : null
