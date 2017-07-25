@@ -26,6 +26,12 @@
             "operator": "exists",
             "path": ".genisys.nextMeeting.startEarly",
             "value": false
+          },
+          {
+            "fact":"data",
+            "operator": "exists",
+            "path": ".genisys.nextMeeting.metadata.exchange.joinOnlineMeetingUrl",
+            "value": true
           }
         ]
       },
