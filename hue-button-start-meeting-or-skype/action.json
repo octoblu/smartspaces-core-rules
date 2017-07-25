@@ -91,8 +91,8 @@
           {
             "fact": "fromDevice",
             "path": ".genisys.room.genisys.inSkype",
-            "operator": "notEqual",
-            "value": true
+            "operator": "equal",
+            "value": false
           },
           {
             "fact": "fromDevice",
@@ -124,7 +124,7 @@
           "data": {
             "$set": {
               "desiredState.meeting": {
-                  "url": "{{fromDevice.genisys.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl}}"
+                  "url": "{{fromDevice.genisys.room.genisys.nextMeeting.metadata.exchange.joinOnlineMeetingUrl}}"
               },
               "desiredState.videoEnabled": true,
               "desiredState.audioEnabled": true
