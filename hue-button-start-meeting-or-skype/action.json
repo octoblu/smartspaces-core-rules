@@ -91,24 +91,12 @@
           {
             "fact": "fromDevice",
             "path": ".genisys.room.genisys.inSkype",
-            "operator": "equal",
-            "value": false
-          },
-          {
-            "fact": "fromDevice",
-            "path": ".genisys.roomId",
-            "operator": "exists",
+            "operator": "notEqual",
             "value": true
           },
           {
             "fact": "fromDevice",
-            "path": ".genisys.room.genisys.nextMeeting.skypeUrl",
-            "operator": "exists",
-            "value": false
-          },
-          {
-            "fact": "fromDevice",
-            "path": ".genisys.room.genisys.nextMeeting.metadata.exchange.joinOnlineMeetingUrl",
+            "path": ".genisys.roomId",
             "operator": "exists",
             "value": true
           }
@@ -118,16 +106,20 @@
        "retry": true,
         "type": "meshblu",
         "params": {
-          "operation": "update",
+          "operation": "message",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "uuid": "{{fromDevice.genisys.room.genisys.devices.skype.uuid}}",
-          "data": {
-            "$set": {
-              "desiredState.meeting": {
-                  "url": "{{fromDevice.genisys.room.genisys.nextMeeting.metadata.exchange.joinOnlineMeetingUrl}}"
+          "message": {
+            "devices": ["{{device.genisys.customerDevices.meetingGroupEndoMeeting.uuid}}"],
+            "metadata": {
+              "jobType": "UpsertMeeting"
+            },
+            "data": {
+              "searchableId": "{{fromDevice.genisys.room.genisys.nextMeeting.searchableId}}",
+              "room": {
+                "roomId": "{{fromDevice.genisys.roomId}}"
               },
-              "desiredState.videoEnabled": true,
-              "desiredState.audioEnabled": true
+              "startTime": "{{fromDevice.genisys.room.meshblu.updatedAt}}",
+              "endTime": "{{fromDevice.genisys.room.genisys.nextMeeting.endTime}}"
             }
           }
         }
