@@ -23,6 +23,12 @@
           },
           {
             "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl",
+            "value": false
+          },
+          {
+            "fact": "data",
             "path": ".state.meeting.url",
             "operator": "exists",
             "value": true
@@ -35,7 +41,7 @@
           }
         ]
       },
-      "event": { 
+      "event": {
        "retry": true,
         "type": "meshblu",
         "params": {
@@ -45,6 +51,52 @@
           "data": {
             "$set": {
               "genisys.skypeUrl": "{{data.state.meeting.url}}"
+            }
+          }
+        }
+      }
+    }
+  },
+  "else": {
+    "whenMeetingHasUrlUpdateMeeting": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.room.genisys.currentMeeting.meetingId",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.room.genisys.currentMeeting.skypeUrl",
+            "value": false
+          },
+          {
+            "fact": "data",
+            "operator": "equal",
+            "path": ".genisys.room.genisys.currentMeeting.skypeUrl",
+            "value": null
+          },
+          {
+            "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+       "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.genisys.room.genisys.currentMeeting.meetingId}}",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.skypeUrl": "{{data.genisys.room.genisys.currentMeeting.metadata.exchange.joinOnlineMeetingUrl}}"
             }
           }
         }
