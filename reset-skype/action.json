@@ -1,0 +1,36 @@
+{
+  "if": {
+    "resetSkype": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".data.room.genisys.devices.skype.uuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".metadata.jobType",
+            "operator": "equal",
+            "value": "reset-skype"
+          }
+        ]
+      },
+      "event": {
+       "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "uuid": "{{data.data.room.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.inSkype" : false
+            }
+          }
+        }
+      }
+    }
+  }
+}
