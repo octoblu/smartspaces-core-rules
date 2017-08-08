@@ -1,0 +1,41 @@
+{
+  "if": {
+    "addRoomGroupStatusDeviceIfNotOnRoom": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "operator": "exists",
+            "path": ".uuid",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "operator": "exists",
+            "path": ".genisys.roomGroupStatus.uuid",
+            "value": false
+          },
+          {
+            "fact": "device",
+            "operator": "exists",
+            "path": ".genisys.customerDevices.roomGroupStatus.uuid",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "update",
+          "uuid": "{{data.uuid}}",
+          "data": {
+            "$set": {
+              "genisys.devices.roomGroupStatus.uuid": "{{device.genisys.customerDevices.roomGroupStatus.uuid}}"
+            }
+          }
+        }
+      }
+    }
+  }
+}
