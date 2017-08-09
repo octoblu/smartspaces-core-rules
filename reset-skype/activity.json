@@ -38,7 +38,7 @@
                   },
                   "data": {
                     "roomId": "{{data.uuid}}",
-                    "room": {"$ref": "meshbludevice://{{data.uuid}}"}
+                    "room": {"$ref": "https://meshblu-ref-cache.octoblu.com/cache/{{data.uuid}}"}
                   }
                 }
               }
