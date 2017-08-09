@@ -39,7 +39,7 @@
                 "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
                 "roomId": "{{data.uuid}}",
                 "message": {
-                  "devices": ["*"],
+                  "devices": ["*", "{{device.genisys.customerDevices.activitiesGroup.uuid}}"],
                   "metadata": {
                     "jobType": "enable-skype-video"
                   },

@@ -32,7 +32,7 @@
                 "people": "{{data.genisys.peopleInRoom}}",
                 "roomId": "{{data.uuid}}",
                 "message": {
-                  "devices": ["*"],
+                  "devices": ["*", "{{device.genisys.customerDevices.activitiesGroup.uuid}}"],
                   "metadata": {
                     "jobType": "reset-skype"
                   },
