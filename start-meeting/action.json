@@ -8,30 +8,6 @@
             "path": ".metadata.jobType",
             "operator": "equal",
             "value": "start-meeting"
-          },
-          {
-            "fact": "fromDevice",
-            "path": ".genisys.room.genisys.currentMeeting",
-            "operator": "exists",
-            "value": false
-          },
-          {
-            "fact": "fromDevice",
-            "path": ".genisys.room.genisys.inSkype",
-            "operator": "notEqual",
-            "value": true
-          },
-          {
-            "fact": "fromDevice",
-            "path": ".genisys.roomId",
-            "operator": "exists",
-            "value": true
-          },
-          {
-            "fact": "fromDevice",
-            "path": ".genisys.room.genisys.nextMeeting",
-            "operator": "exists",
-            "value": false
           }
         ]
       },
