@@ -8,6 +8,30 @@
             "path": ".metadata.jobType",
             "operator": "equal",
             "value": "start-meeting"
+          },
+          {
+            "fact": "data",
+            "path": ".data.room.genisys.currentMeeting",
+            "operator": "exists",
+            "value": false
+          },
+          {
+            "fact": "data",
+            "path": ".data.room.genisys.inSkype",
+            "operator": "notEqual",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".data.room.uuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".data.room.genisys.nextMeeting",
+            "operator": "exists",
+            "value": false
           }
         ]
       },
@@ -29,7 +53,7 @@
             "data": {
               "subject": "Instant Meeting",
               "room": {
-                "roomId": "{{fromDevice.genisys.roomId}}"
+                "roomId": "{{data.data.room.uuid}}"
               },
               "attendees": []
             }
@@ -41,8 +65,8 @@
       "conditions": {
         "all": [
           {
-            "fact": "fromDevice",
-            "path": ".genisys.room.genisys.nextMeeting",
+            "fact": "data",
+            "path": ".data.room.genisys.nextMeeting",
             "operator": "exists",
             "value": true
           },
@@ -53,32 +77,32 @@
             "value": "start-meeting"
           },
           {
-            "fact": "fromDevice",
-            "path": ".genisys.room.genisys.nextMeeting.startTime",
+            "fact": "data",
+            "path": ".data.room.genisys.nextMeeting.startTime",
             "operator": "minutesUntil",
             "value": 5
           },
           {
-            "fact": "fromDevice",
-            "path": ".genisys.room.genisys.currentMeeting",
+            "fact": "data",
+            "path": ".data.room.genisys.currentMeeting",
             "operator": "exists",
             "value": false
           },
           {
-            "fact": "fromDevice",
-            "path": ".genisys.room.genisys.inSkype",
+            "fact": "data",
+            "path": ".data.room.genisys.inSkype",
             "operator": "notEqual",
             "value": true
           },
           {
-            "fact": "fromDevice",
-            "path": ".genisys.roomId",
+            "fact": "data",
+            "path": ".data.room.uuid",
             "operator": "exists",
             "value": true
           },
           {
-            "fact": "fromDevice",
-            "path": ".genisys.room.genisys.nextMeeting.metadata.exchange.joinOnlineMeetingUrl",
+            "fact": "data",
+            "path": ".data.room.genisys.nextMeeting.metadata.exchange.joinOnlineMeetingUrl",
             "operator": "exists",
             "value": true
           }
@@ -90,11 +114,11 @@
         "params": {
           "operation": "update",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "uuid": "{{fromDevice.genisys.room.genisys.devices.skype.uuid}}",
+          "uuid": "{{data.data.room.genisys.devices.skype.uuid}}",
           "data": {
             "$set": {
               "desiredState.meeting": {
-                  "url": "{{fromDevice.genisys.room.genisys.nextMeeting.metadata.exchange.joinOnlineMeetingUrl}}"
+                  "url": "{{data.data.room.genisys.nextMeeting.metadata.exchange.joinOnlineMeetingUrl}}"
               },
               "desiredState.videoEnabled": true,
               "desiredState.audioEnabled": true
@@ -115,26 +139,26 @@
             "value": "start-meeting"
           },
           {
-            "fact": "fromDevice",
-            "path": ".genisys.room.genisys.currentMeeting",
+            "fact": "data",
+            "path": ".data.room.genisys.currentMeeting",
             "operator": "exists",
             "value": false
           },
           {
-            "fact": "fromDevice",
-            "path": ".genisys.room.genisys.inSkype",
+            "fact": "data",
+            "path": ".data.room.genisys.inSkype",
             "operator": "notEqual",
             "value": true
           },
           {
-            "fact": "fromDevice",
-            "path": ".genisys.roomId",
+            "fact": "data",
+            "path": ".data.room.uuid",
             "operator": "exists",
             "value": true
           },
           {
-            "fact": "fromDevice",
-            "path": ".genisys.room.genisys.nextMeeting",
+            "fact": "data",
+            "path": ".data.room.genisys.nextMeeting",
             "operator": "exists",
             "value": true
           }
@@ -158,7 +182,7 @@
             "data": {
               "subject": "Instant Meeting",
               "room": {
-                "roomId": "{{fromDevice.genisys.roomId}}"
+                "roomId": "{{data.data.room.uuid}}"
               },
               "attendees": []
             }
