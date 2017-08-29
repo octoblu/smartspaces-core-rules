@@ -37,6 +37,7 @@
                 "name": "{{data.name}}",
                 "genisys": {
                   "hidden": "{{data.genisys.hidden}}",
+                  "roomDevices": {"$ref": "https://meshblu-ref-cache.octoblu.com/cache/{{data.uuid}}/genisys/devices"},
                   "currentMeeting": {
                     "attendees": "{{data.genisys.currentMeeting.attendees}}",
                     "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
