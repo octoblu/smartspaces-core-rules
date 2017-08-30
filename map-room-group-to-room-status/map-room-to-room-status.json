@@ -99,6 +99,7 @@
                 "name": "{{data.name}}",
                 "genisys": {
                   "hidden": "{{data.genisys.hidden}}",
+                  "roomDevices": {"$ref": "https://meshblu-ref-cache.octoblu.com/cache/{{data.uuid}}/genisys/devices"},
                   "currentMeeting": {},
                   "nextMeeting": {
                     "meetingId": "{{data.genisys.nextMeeting.meetingId}}",
