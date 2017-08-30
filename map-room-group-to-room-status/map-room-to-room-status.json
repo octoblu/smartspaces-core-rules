@@ -38,6 +38,7 @@
                 "genisys": {
                   "hidden": "{{data.genisys.hidden}}",
                   "roomDevices": {"$ref": "https://meshblu-ref-cache.octoblu.com/cache/{{data.uuid}}/genisys/devices"},
+                  "customerDevices": {"$ref": "https://meshblu-ref-cache.octoblu.com/cache/{{device.genisys.customerDevices.customer.uuid}}/genisys/devices"},
                   "currentMeeting": {
                     "attendees": "{{data.genisys.currentMeeting.attendees}}",
                     "meetingId": "{{data.genisys.currentMeeting.meetingId}}",
@@ -100,6 +101,7 @@
                 "genisys": {
                   "hidden": "{{data.genisys.hidden}}",
                   "roomDevices": {"$ref": "https://meshblu-ref-cache.octoblu.com/cache/{{data.uuid}}/genisys/devices"},
+                  "customerDevices": {"$ref": "https://meshblu-ref-cache.octoblu.com/cache/{{device.genisys.customerDevices.customer.uuid}}/genisys/devices"},
                   "currentMeeting": {},
                   "nextMeeting": {
                     "meetingId": "{{data.genisys.nextMeeting.meetingId}}",
