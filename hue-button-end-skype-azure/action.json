@@ -1,0 +1,43 @@
+{
+  "if": {
+    "setSkypeUrlOnSkypeDevice": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".data.action",
+            "operator": "equal",
+            "value": "click"
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.devices.skype.uuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.inSkype",
+            "operator": "equal",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "message",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "message": {
+            "devices": [ "{{fromDevice.genisys.room.genisys.devices.skype.uuid}}"],
+            "data": {},
+            "metadata": {
+              "jobType": "end-skype"
+            }
+          }
+        }
+      }
+    }
+  }
+}

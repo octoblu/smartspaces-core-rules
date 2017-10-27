@@ -1,0 +1,36 @@
+{
+  "if": {
+    "sendStartSkype": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".metadata.jobType",
+            "operator": "equal",
+            "value": "start-skype"
+          },
+          {
+            "fact": "data",
+            "path": ".data.room.genisys.inSkype",
+            "operator": "equal",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "message",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "message": {
+            "devices": [ "{{data.data.room.genisys.devices.powermate.uuid}}"],
+            "data": {
+              "action": "startSkype"
+            }
+          }
+        }
+      }
+    }
+  }
+}

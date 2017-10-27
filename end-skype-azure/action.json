@@ -1,0 +1,37 @@
+{
+  "if": {
+    "removeMeetingOnSkypeDevice": {
+      "conditions": {
+        "all": [
+          {
+            "fact": "data",
+            "path": ".data.room.genisys.devices.skype.uuid",
+            "operator": "exists",
+            "value": true
+          },
+          {
+            "fact": "data",
+            "path": ".metadata.jobType",
+            "operator": "equal",
+            "value": "end-skype"
+          }
+        ]
+      },
+      "event":  {
+        "retry": true,
+        "type": "meshblu",
+        "params": {
+          "operation": "message",
+          "as": "{{device.genisys.customerDevices.customer.uuid}}",
+          "message": {
+            "devices": [ "{{data.data.room.genisys.devices.skype.uuid}}"],
+            "data": {},
+            "metadata": {
+              "jobType": "end-skype"
+            }
+          }
+        }
+      }
+    }
+  }
+}
