@@ -5,15 +5,21 @@
         "all": [
           {
             "fact": "data",
-            "path": ".data.room.genisys.devices.skype.uuid",
+            "path": ".data.action",
+            "operator": "equal",
+            "value": "click"
+          },
+          {
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.devices.skype.uuid",
             "operator": "exists",
             "value": true
           },
           {
-            "fact": "data",
-            "path": ".metadata.jobType",
-            "operator": "equal",
-            "value": "start-skype"
+            "fact": "fromDevice",
+            "path": ".genisys.room.genisys.inSkype",
+            "operator": "notEqual",
+            "value": true
           }
         ]
       },
@@ -22,8 +28,8 @@
         "type": "meshblu",
         "params": {
           "operation": "update",
-          "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "uuid": "{{data.data.room.genisys.devices.room.uuid}}",
+          "as": "{{fromDevice.genisys.customerDevices.customer.uuid}}",
+          "uuid": "{{fromDevice.genisys.devices.room.uuid}}",
           "data": {
             "$set": {
               "genisys.inSkype": true
