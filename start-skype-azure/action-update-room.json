@@ -23,7 +23,7 @@
         "params": {
           "operation": "update",
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
-          "uuid": "{{data.data.room.uuid}}",
+          "uuid": "{{data.data.room.genisys.devices.room.uuid}}",
           "data": {
             "$set": {
               "genisys.inSkype": true
