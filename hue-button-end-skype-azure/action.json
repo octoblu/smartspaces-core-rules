@@ -31,7 +31,9 @@
           "as": "{{device.genisys.customerDevices.customer.uuid}}",
           "message": {
             "devices": [ "{{fromDevice.genisys.room.genisys.devices.skype.uuid}}"],
-            "data": {},
+            "data": {
+              "room": {"$ref": "https://meshblu-ref-cache.octoblu.com/cache/{{fromDevice.genisys.room.uuid}}"}
+            },
             "metadata": {
               "jobType": "end-skype"
             }
