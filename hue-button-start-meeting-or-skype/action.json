@@ -347,6 +347,9 @@
               },
               "desiredState.videoEnabled": true,
               "desiredState.audioEnabled": true
+            },
+            "$inc": {
+              "genisys.skypeCount": 1
             }
           }
         }

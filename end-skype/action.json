@@ -18,7 +18,7 @@
         ]
       },
       "event": {
-       "retry": true,
+        "retry": true,
         "type": "meshblu",
         "params": {
           "operation": "update",
@@ -26,9 +26,12 @@
           "uuid": "{{data.data.room.genisys.devices.skype.uuid}}",
           "data": {
             "$set": {
-              "desiredState" : {
+              "desiredState": {
                 "meeting": null
               }
+            },
+            "$inc": {
+              "genisys.skypeCount": 1
             }
           }
         }
